@@ -1,16 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'ngx-screening',
   templateUrl: './screening.component.html',
   styleUrls: ['./screening.component.scss'],
 })
-export class ScreeningComponent implements OnInit {
+export class ScreeningComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-    // Component initialization logic can be added here when needed
-  }
 
 }
