@@ -33,11 +33,16 @@ export class TemperatureDraggerComponent implements AfterViewInit, OnChanges {
   @Input() thumbBorderColor;
   @Input() maxLeap = 0.4;
 
-  value = 50;
   @Output() valueChange = new EventEmitter<Number>();
-  @Input('value') set setValue(value) {
-    this.value = value;
+  @Input() set value(value: number) {
+    this._value = value;
   }
+  
+  get value(): number {
+    return this._value;
+  }
+  
+  private _value = 50;
 
   @Input() min = 0; // min output value
   @Input() max = 100; // max output value
