@@ -1,0 +1,7 @@
+<div *ngIf="!loading" class="chart-container">
+  <chart type="horizontalBar" [data]="chartData" [options]="options"></chart>
+</div>
+
+<div *ngIf="loading" class="chart-loader">
+  <nb-spinner status="primary"></nb-spinner>
+</div>

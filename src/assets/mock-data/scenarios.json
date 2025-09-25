@@ -1,0 +1,17 @@
+[
+  {
+    "scenario_name": "8.1.22 western union",
+    "short_code": "8.1.22",
+    "category": "WU"
+  },
+  {
+    "scenario_name": "8.1.30 cash in",
+    "short_code": "8.1.30",
+    "category": "Cash-in"
+  },
+  {
+    "scenario_name": "7.2.11 agg domestic transfer",
+    "short_code": "7.2.11",
+    "category": "Domestic Transfer"
+  }
+]

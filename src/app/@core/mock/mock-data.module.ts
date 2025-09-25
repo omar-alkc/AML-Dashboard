@@ -1,5 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { UserService } from './users.service';
 import { ElectricityService } from './electricity.service';
@@ -22,6 +23,15 @@ import { StatsProgressBarService } from './stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './visitors-analytics.service';
 import { SecurityCamerasService } from './security-cameras.service';
 
+// AML Dashboard Services
+import { DetectionService } from './detection.service';
+import { ScenarioService } from './scenario.service';
+import { StatusService } from './status.service';
+import { InvestigatorService } from './investigator.service';
+import { ScreeningService } from './screening.service';
+import { GoAmlReportService } from './goaml-report.service';
+import { WalletService } from './wallet.service';
+
 const SERVICES = [
   UserService,
   ElectricityService,
@@ -43,11 +53,20 @@ const SERVICES = [
   StatsProgressBarService,
   VisitorsAnalyticsService,
   SecurityCamerasService,
+  // AML Dashboard Services
+  DetectionService,
+  ScenarioService,
+  StatusService,
+  InvestigatorService,
+  ScreeningService,
+  GoAmlReportService,
+  WalletService,
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+    HttpClientModule,
   ],
   providers: [
     ...SERVICES,

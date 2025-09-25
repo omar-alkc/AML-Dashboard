@@ -1,0 +1,27 @@
+[
+  {
+    "id": 101,
+    "wallet_type": "actor",
+    "created_at": "2025-09-01"
+  },
+  {
+    "id": 102,
+    "wallet_type": "merchant",
+    "created_at": "2025-09-01"
+  },
+  {
+    "id": 103,
+    "wallet_type": "agent",
+    "created_at": "2025-09-02"
+  },
+  {
+    "id": 104,
+    "wallet_type": "company",
+    "created_at": "2025-09-03"
+  },
+  {
+    "id": 105,
+    "wallet_type": "actor",
+    "created_at": "2025-09-05"
+  }
+]

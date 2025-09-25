@@ -1,0 +1,42 @@
+<div class="controls-row">
+  <div class="scenario-selector">
+    <div class="dropdown" [class.open]="dropdownOpen">
+      <div class="dropdown-toggle" (click)="toggleDropdown()">
+        <span>{{ getSelectedScenariosText() }}</span>
+        <nb-icon icon="chevron-down-outline"></nb-icon>
+      </div>
+      <div class="dropdown-menu" *ngIf="dropdownOpen">
+        <div class="dropdown-header">
+          <div class="dropdown-actions">
+            <button nbButton size="tiny" status="basic" (click)="selectAllScenarios()">Select All</button>
+            <button nbButton size="tiny" status="basic" (click)="deselectAllScenarios()">Clear All</button>
+          </div>
+        </div>
+        <div class="dropdown-content">
+          <div class="dropdown-item" *ngFor="let scenario of availableScenarios" (click)="toggleScenario(scenario.key)">
+            <span class="scenario-color" [style.background-color]="scenario.color"></span>
+            <div class="scenario-text">
+              <strong>{{ scenario.label }}</strong>
+            </div>
+            <input type="checkbox" [checked]="selectedScenarios.includes(scenario.key)" readonly>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bucket-controls">
+    <div class="btn-group">
+      <button nbButton status="primary" size="small" [class.active]="bucketSize === 'day'" (click)="updateBucketSize('day')">Day</button>
+      <button nbButton status="primary" size="small" [class.active]="bucketSize === 'week'" (click)="updateBucketSize('week')">Week</button>
+      <button nbButton status="primary" size="small" [class.active]="bucketSize === 'month'" (click)="updateBucketSize('month')">Month</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!loading" class="chart-container">
+  <chart type="line" [data]="chartData" [options]="options"></chart>
+</div>
+
+<div *ngIf="loading" class="chart-loader">
+  <nb-spinner status="primary"></nb-spinner>
+</div>

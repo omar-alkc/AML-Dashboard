@@ -1,0 +1,17 @@
+.chart-container {
+  height: 400px; // Fixed height for consistency
+  width: 100%;
+  overflow: hidden;
+}
+
+.chart-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.heatmap-chart {
+  height: 100%;
+  width: 100%;
+}

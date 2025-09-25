@@ -11,6 +11,21 @@ const routes: Routes = [{
   component: PagesComponent,
   children: [
     {
+      path: 'aml-monitoring',
+      loadChildren: () => import('./aml-monitoring/aml-monitoring.module')
+        .then(m => m.AmlMonitoringModule),
+    },
+    {
+      path: 'screening',
+      loadChildren: () => import('./screening/screening.module')
+        .then(m => m.ScreeningModule),
+    },
+    {
+      path: 'goaml-reports',
+      loadChildren: () => import('./goaml-reports/goaml-reports.module')
+        .then(m => m.GoamlReportsModule),
+    },
+    {
       path: 'dashboard',
       component: ECommerceComponent,
     },
@@ -70,7 +85,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'aml-monitoring',
       pathMatch: 'full',
     },
     {

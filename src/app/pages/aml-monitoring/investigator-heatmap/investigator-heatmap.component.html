@@ -1,0 +1,7 @@
+<div *ngIf="!loading" style="height: 400px;">
+  <div echarts [options]="chartOptions" (chartInit)="onChartInit($event)" class="heatmap-chart"></div>
+</div>
+
+<div *ngIf="loading" class="chart-loader">
+  <nb-spinner status="primary"></nb-spinner>
+</div>

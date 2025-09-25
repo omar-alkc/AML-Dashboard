@@ -1,0 +1,34 @@
+[
+  {
+    "code": 1,
+    "name": "New"
+  },
+  {
+    "code": 2,
+    "name": "Delayed"
+  },
+  {
+    "code": 3,
+    "name": "Suspicious Initial"
+  },
+  {
+    "code": 4,
+    "name": "False Positive Initial"
+  },
+  {
+    "code": 5,
+    "name": "Waiting for Evidence"
+  },
+  {
+    "code": 6,
+    "name": "Suspicious Final"
+  },
+  {
+    "code": 7,
+    "name": "False Positive Final"
+  },
+  {
+    "code": 8,
+    "name": "Sent SAR"
+  }
+]

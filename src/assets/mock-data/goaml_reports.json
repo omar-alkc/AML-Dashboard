@@ -1,0 +1,26 @@
+[
+  {
+    "report_id": "SAR-001",
+    "submitted_at": "2025-09-02",
+    "report_type": "SAR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Trading activity"
+  },
+  {
+    "report_id": "SAR-002",
+    "submitted_at": "2025-09-05",
+    "report_type": "CTR",
+    "submitted_by": "aya.raed",
+    "status": "Draft",
+    "reason": "Crypto trading activity"
+  },
+  {
+    "report_id": "STR-003",
+    "submitted_at": "2025-09-06",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Crypto trading activity"
+  }
+]

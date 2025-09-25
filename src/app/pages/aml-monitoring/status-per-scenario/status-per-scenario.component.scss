@@ -1,0 +1,40 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  .view-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    
+    .btn-group {
+      display: flex;
+      gap: 0.25rem;
+      
+      button {
+        &.active {
+          background-color: #007bff;
+          border-color: #007bff;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .chart-container {
+    height: 400px; // Fixed height for consistency
+    width: 100%;
+    overflow: hidden;
+    
+    chart {
+      height: 100% !important;
+      width: 100% !important;
+    }
+  }
+
+  .chart-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+  }
+}

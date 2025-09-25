@@ -1,0 +1,30 @@
+[
+  {
+    "detection_date": "2025-09-01",
+    "detection_id": "1234567",
+    "MSISDN": "9647712345678",
+    "status": "clean",
+    "investigator": "Ahmed Asaad"
+  },
+  {
+    "detection_date": "2025-09-02",
+    "detection_id": "1234568",
+    "MSISDN": "9647712345679",
+    "status": "Pending",
+    "investigator": "Aya Raed"
+  },
+  {
+    "detection_date": "2025-09-03",
+    "detection_id": "1234569",
+    "MSISDN": "9647712345680",
+    "status": "Rejected",
+    "investigator": "Aya Raed"
+  },
+  {
+    "detection_date": "2025-09-04",
+    "detection_id": "1234570",
+    "MSISDN": "9647712345681",
+    "status": "Pending",
+    "investigator": "Safa"
+  }
+]

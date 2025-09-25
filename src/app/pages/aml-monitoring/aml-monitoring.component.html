@@ -1,0 +1,113 @@
+<div class="page-content">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Transaction Monitoring Dashboard</h3>
+          <div class="header-actions">
+            <span *ngIf="lastRefresh" class="last-updated">
+              Last updated: {{ lastRefresh | date:'medium' }}
+            </span>
+            <button class="btn btn-primary btn-sm" (click)="onRefreshClicked()">
+              <i class="icon-refresh"></i>
+              Refresh Data
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <ngx-aml-filters></ngx-aml-filters>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- KPIs Row -->
+<div class="row">
+  <div class="col-12">
+    <ngx-aml-kpis [dateRange]="dateRange"></ngx-aml-kpis>
+  </div>
+</div>
+
+<!-- Charts Row 1 -->
+<div class="row">
+  <div class="col-md-6">
+    <nb-card>
+      <nb-card-header>Pending Alerts per Scenario</nb-card-header>
+      <nb-card-body>
+        <ngx-pending-alerts [dateRange]="dateRange"></ngx-pending-alerts>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-md-6">
+    <nb-card>
+      <nb-card-header>Created vs Processed per Scenario</nb-card-header>
+      <nb-card-body>
+        <ngx-created-vs-processed [dateRange]="dateRange"></ngx-created-vs-processed>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<!-- Charts Row 2 -->
+<div class="row">
+  <div class="col-md-6">
+    <nb-card>
+      <nb-card-header>Alert Trends over Time</nb-card-header>
+      <nb-card-body>
+        <ngx-time-trend [dateRange]="dateRange"></ngx-time-trend>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-md-6">
+    <nb-card>
+      <nb-card-header>Detection Distribution</nb-card-header>
+      <nb-card-body>
+        <ngx-status-distribution [dateRange]="dateRange"></ngx-status-distribution>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<!-- Charts Row 2.5 - Alerts Trends by Scenario -->
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>Alerts Trends by Scenario</nb-card-header>
+      <nb-card-body>
+        <ngx-alerts-trends-scenario [dateRange]="dateRange"></ngx-alerts-trends-scenario>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<!-- Charts Row 3 -->
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>Detection Status per Scenario</nb-card-header>
+      <nb-card-body>
+        <ngx-status-per-scenario [dateRange]="dateRange"></ngx-status-per-scenario>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<!-- Charts Row 4 -->
+<div class="row">
+  <div class="col-md-8">
+    <nb-card>
+      <nb-card-header>Investigator Performance</nb-card-header>
+      <nb-card-body>
+        <ngx-investigator-heatmap [dateRange]="dateRange"></ngx-investigator-heatmap>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-md-4">
+    <nb-card>
+      <nb-card-header>Delayed Alerts by Investigator</nb-card-header>
+      <nb-card-body>
+        <ngx-delayed-alerts [dateRange]="dateRange"></ngx-delayed-alerts>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
