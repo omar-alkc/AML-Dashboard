@@ -1,0 +1,9 @@
+<div class="chart-container" *ngIf="!loading">
+  <div class="chart-wrapper">
+    <chart type="line" [data]="chartData" [options]="chartOptions"></chart>
+  </div>
+</div>
+
+<div class="loading-container" *ngIf="loading">
+  <nb-spinner size="medium"></nb-spinner>
+</div>

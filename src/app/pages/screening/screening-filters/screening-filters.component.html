@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="form-group row">
+      <label for="startDate" class="col-sm-2 col-form-label">Date Range:</label>
+      <div class="col-sm-4">
+        <label class="date-label">From</label>
+        <input
+          nbInput
+          fullWidth
+          placeholder="Start Date"
+          [nbDatepicker]="startDatePicker"
+          [(ngModel)]="startDate"
+          (ngModelChange)="onDateRangeChange()"
+        >
+        <nb-datepicker #startDatePicker></nb-datepicker>
+      </div>
+      <div class="col-sm-4">
+        <label class="date-label">To</label>
+        <input
+          nbInput
+          fullWidth
+          placeholder="End Date"
+          [nbDatepicker]="endDatePicker"
+          [(ngModel)]="endDate"
+          (ngModelChange)="onDateRangeChange()"
+        >
+        <nb-datepicker #endDatePicker></nb-datepicker>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="preset-buttons">
+      <button nbButton size="small" status="basic" (click)="setPresetRange('today')">Today</button>
+      <button nbButton size="small" status="basic" (click)="setPresetRange('thisWeek')">This Week</button>
+      <button nbButton size="small" status="basic" (click)="setPresetRange('lastWeek')">Last Week</button>
+      <button nbButton size="small" status="basic" (click)="setPresetRange('thisMonth')">This Month</button>
+      <button nbButton size="small" status="basic" (click)="setPresetRange('lastMonth')">Last Month</button>
+    </div>
+  </div>
+</div>

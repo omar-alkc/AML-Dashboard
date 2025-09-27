@@ -1,19 +1,148 @@
 <div class="page-content">
-  <div class="card">
-    <div class="card-header">
-      <h3>Screening Dashboard</h3>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>AML Screening Dashboard</h3>
+          <div class="header-actions">
+            <span *ngIf="lastRefresh" class="last-updated">
+              Last updated: {{ lastRefresh | date:'medium' }}
+            </span>
+            <button class="btn btn-primary btn-sm" (click)="onRefreshClicked()">
+              <i class="icon-refresh"></i>
+              Refresh Data
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <ngx-screening-filters></ngx-screening-filters>
+        </div>
+      </div>
     </div>
-    <div class="card-body">
-      <p>This page will contain screening-related visualizations and KPIs.</p>
-      <p>Coming soon...</p>
-      <div class="placeholder-content">
-        <h4>Planned Features:</h4>
-        <ul>
-          <li>Screening volume trends</li>
-          <li>Hit rate analysis</li>
-          <li>False positive rates</li>
-          <li>Investigator performance</li>
-        </ul>
+  </div>
+
+  <!-- KPIs Row 1: Onboarding Screening -->
+  <div class="row">
+    <div class="col-12">
+      <div class="kpi-section-header">
+        <h4>On-boarding KPIs</h4>
+      </div>
+      <ngx-onboarding-kpis [dateRange]="dateRange"></ngx-onboarding-kpis>
+    </div>
+  </div>
+
+  <!-- KPIs Row 2: Periodic Screening -->
+  <div class="row">
+    <div class="col-12">
+      <div class="kpi-section-header">
+        <h4>Periodic screening KPIs</h4>
+      </div>
+      <ngx-periodic-kpis [dateRange]="dateRange"></ngx-periodic-kpis>
+    </div>
+  </div>
+
+  <!-- KPIs Row 3: WU Beneficiary Screening -->
+  <div class="row">
+    <div class="col-12">
+      <div class="kpi-section-header">
+        <h4>WU add beneficiary KPIs</h4>
+      </div>
+      <ngx-wu-kpis [dateRange]="dateRange"></ngx-wu-kpis>
+    </div>
+  </div>
+
+  <!-- Onboarding Screening Section -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4>Onboarding screening</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="chart-section">
+                <div class="chart-tabs">
+                  <button class="btn btn-sm btn-primary" [class.active]="onboardingTimePeriod === 'day'" (click)="setOnboardingTimePeriod('day')">Day</button>
+                  <button class="btn btn-sm btn-primary" [class.active]="onboardingTimePeriod === 'week'" (click)="setOnboardingTimePeriod('week')">Week</button>
+                  <button class="btn btn-sm btn-primary" [class.active]="onboardingTimePeriod === 'month'" (click)="setOnboardingTimePeriod('month')">Month</button>
+                </div>
+                <h5>Screening work per time</h5>
+                <ngx-wallet-creation-status [dateRange]="dateRange" [timePeriod]="onboardingTimePeriod"></ngx-wallet-creation-status>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="chart-section">
+                <h5>Screening work by investigator</h5>
+                <ngx-onboarding-investigator-pie [dateRange]="dateRange"></ngx-onboarding-investigator-pie>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Periodic Screening Section -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4>Periodic screening</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="chart-section">
+                <div class="chart-tabs">
+                  <button class="btn btn-sm btn-primary" [class.active]="periodicTimePeriod === 'day'" (click)="setPeriodicTimePeriod('day')">Day</button>
+                  <button class="btn btn-sm btn-primary" [class.active]="periodicTimePeriod === 'week'" (click)="setPeriodicTimePeriod('week')">Week</button>
+                  <button class="btn btn-sm btn-primary" [class.active]="periodicTimePeriod === 'month'" (click)="setPeriodicTimePeriod('month')">Month</button>
+                </div>
+                <h5>Periodic Screening work per time</h5>
+                <ngx-periodic-screening-trends [dateRange]="dateRange" [timePeriod]="periodicTimePeriod"></ngx-periodic-screening-trends>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="chart-section">
+                <h5>Periodic Screening work by investigator</h5>
+                <ngx-periodic-investigator-pie [dateRange]="dateRange"></ngx-periodic-investigator-pie>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WU Add Beneficiary Screening Section -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4>WU Add beneficiary screening</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="chart-section">
+                <div class="chart-tabs">
+                  <button class="btn btn-sm btn-primary" [class.active]="wuTimePeriod === 'day'" (click)="setWUTimePeriod('day')">Day</button>
+                  <button class="btn btn-sm btn-primary" [class.active]="wuTimePeriod === 'week'" (click)="setWUTimePeriod('week')">Week</button>
+                  <button class="btn btn-sm btn-primary" [class.active]="wuTimePeriod === 'month'" (click)="setWUTimePeriod('month')">Month</button>
+                </div>
+                <h5>WU add beneficiary Screening work per time</h5>
+                <ngx-wu-screening-trends [dateRange]="dateRange" [timePeriod]="wuTimePeriod"></ngx-wu-screening-trends>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="chart-section">
+                <h5>WU add beneficiary screening work by investigator</h5>
+                <ngx-wu-investigator-pie [dateRange]="dateRange"></ngx-wu-investigator-pie>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

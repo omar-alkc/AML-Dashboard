@@ -1,0 +1,76 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  .date-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: nb-theme(text-hint-color);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .preset-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  // Date picker theme styling
+  ::ng-deep {
+    .nb-datepicker-container {
+      background: nb-theme(background-basic-color-1) !important;
+      border: 1px solid nb-theme(border-basic-color-3) !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .nb-datepicker-header {
+      background: nb-theme(background-basic-color-2) !important;
+      border-bottom: 1px solid nb-theme(border-basic-color-3) !important;
+    }
+
+    .nb-datepicker-header .nb-calendar-header {
+      color: nb-theme(text-basic-color) !important;
+    }
+
+    .nb-datepicker-body {
+      background: nb-theme(background-basic-color-1) !important;
+    }
+
+    .nb-calendar-day-cell {
+      color: nb-theme(text-basic-color) !important;
+    }
+
+    .nb-calendar-day-cell:hover {
+      background: nb-theme(background-basic-color-2) !important;
+    }
+
+    .nb-calendar-day-cell.selected {
+      background: nb-theme(color-primary-500) !important;
+      color: nb-theme(text-control-color) !important;
+    }
+
+    .nb-calendar-day-cell.today {
+      border: 1px solid nb-theme(color-primary-500) !important;
+    }
+
+    // Additional date picker styling
+    .nb-datepicker {
+      background: nb-theme(background-basic-color-1) !important;
+    }
+
+    .nb-calendar {
+      background: nb-theme(background-basic-color-1) !important;
+    }
+
+    .nb-calendar-month {
+      background: nb-theme(background-basic-color-1) !important;
+    }
+
+    .nb-calendar-weekday {
+      color: nb-theme(text-hint-color) !important;
+    }
+  }
+}

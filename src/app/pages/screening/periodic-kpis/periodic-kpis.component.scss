@@ -1,0 +1,111 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .kpi-item {
+    width: 100%;
+  }
+
+  .kpi-card {
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    margin-bottom: 1.25rem;
+    height: 120px; // Fixed height for all cards
+    
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    nb-card-body {
+      padding: 1rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    
+    .icon-container {
+      padding: 0.75rem;
+      border-radius: 50%;
+      margin-right: 1rem;
+      flex-shrink: 0;
+      
+      nb-icon {
+        font-size: 1.5rem;
+      }
+    }
+
+    .info {
+      flex: 1;
+      min-width: 0;
+      
+      .title {
+        color: nb-theme(text-hint-color);
+        font-size: 0.75rem;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 0.25rem;
+      }
+
+      .value {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+        color: nb-theme(text-basic-color);
+        line-height: 1.2;
+      }
+
+      .comparison {
+        .comparison-text {
+          font-size: 0.7rem;
+          font-weight: 500;
+          line-height: 1.2;
+          
+          &.positive {
+            color: nb-theme(color-success-500);
+          }
+          
+          &.negative {
+            color: nb-theme(color-danger-500);
+          }
+          
+          &.neutral {
+            color: nb-theme(text-hint-color);
+          }
+        }
+      }
+    }
+
+    &.status-primary .icon-container {
+      background-color: rgba(nb-theme(color-primary-500), 0.1);
+    }
+
+    &.status-success .icon-container {
+      background-color: rgba(nb-theme(color-success-500), 0.1);
+    }
+
+    &.status-info .icon-container {
+      background-color: rgba(nb-theme(color-info-500), 0.1);
+    }
+
+    &.status-warning .icon-container {
+      background-color: rgba(nb-theme(color-warning-500), 0.1);
+    }
+
+    &.status-danger .icon-container {
+      background-color: rgba(nb-theme(color-danger-500), 0.1);
+    }
+  }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+  }
+}

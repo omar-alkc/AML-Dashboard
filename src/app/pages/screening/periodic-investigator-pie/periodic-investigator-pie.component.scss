@@ -1,0 +1,33 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  .chart-container {
+    display: flex;
+    flex-direction: column;
+    
+    .chart-wrapper {
+      min-height: 250px;
+      width: 100%;
+      position: relative;
+      background: nb-theme(background-basic-color-1);
+      border-radius: 8px;
+      padding: 0.5rem;
+    }
+  }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+  }
+
+  // Ensure chart takes full available space
+  ::ng-deep {
+    .chart-wrapper {
+      canvas {
+        width: 100% !important;
+      }
+    }
+  }
+}

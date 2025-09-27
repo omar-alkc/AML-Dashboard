@@ -22,6 +22,16 @@ import { ThemeModule } from '../../@theme/theme.module';
 
 // Components
 import { ScreeningComponent } from './screening.component';
+import { OnboardingKpisComponent } from './onboarding-kpis/onboarding-kpis.component';
+import { PeriodicKpisComponent } from './periodic-kpis/periodic-kpis.component';
+import { WuKpisComponent } from './wu-kpis/wu-kpis.component';
+import { WalletCreationStatusComponent } from './wallet-creation-status/wallet-creation-status.component';
+import { OnboardingInvestigatorPieComponent } from './onboarding-investigator-pie/onboarding-investigator-pie.component';
+import { PeriodicScreeningTrendsComponent } from './periodic-screening-trends/periodic-screening-trends.component';
+import { PeriodicInvestigatorPieComponent } from './periodic-investigator-pie/periodic-investigator-pie.component';
+import { WuScreeningTrendsComponent } from './wu-screening-trends/wu-screening-trends.component';
+import { WuInvestigatorPieComponent } from './wu-investigator-pie/wu-investigator-pie.component';
+import { ScreeningFiltersComponent } from './screening-filters/screening-filters.component';
 
 @NgModule({
   imports: [
@@ -51,6 +61,16 @@ import { ScreeningComponent } from './screening.component';
   ],
   declarations: [
     ScreeningComponent,
+    OnboardingKpisComponent,
+    PeriodicKpisComponent,
+    WuKpisComponent,
+    WalletCreationStatusComponent,
+    OnboardingInvestigatorPieComponent,
+    PeriodicScreeningTrendsComponent,
+    PeriodicInvestigatorPieComponent,
+    WuScreeningTrendsComponent,
+    WuInvestigatorPieComponent,
+    ScreeningFiltersComponent,
   ],
 })
 export class ScreeningModule {
