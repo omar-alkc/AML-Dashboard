@@ -3,7 +3,7 @@
 @include nb-install-component() {
   .kpi-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 16.666%);
     gap: 1rem;
     margin-bottom: 1rem;
   }
