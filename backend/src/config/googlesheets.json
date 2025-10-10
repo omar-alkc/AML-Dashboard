@@ -1,0 +1,19 @@
+{
+  "credentials": {
+    "type": "service_account",
+    "project_id": "your-project-id",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nYOUR_PRIVATE_KEY_HERE\n-----END PRIVATE KEY-----\n",
+    "client_email": "your-service-account@your-project.iam.gserviceaccount.com"
+  },
+  "sheets": {
+    "screening": {
+      "sheetId": "1abc123def456",
+      "range": "Sheet1!A1:Z1000"
+    },
+    "goaml": {
+      "sheetId": "2def456ghi789",
+      "range": "Reports!A1:Z1000"
+    }
+  }
+}
+

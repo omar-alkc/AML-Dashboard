@@ -1,0 +1,38 @@
+{
+  "name": "aml-dashboard-backend",
+  "version": "1.0.0",
+  "description": "Backend API for AML Dashboard with configurable data sources",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "nodemon --watch src --exec ts-node src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aml",
+    "dashboard",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "googleapis": "^162.0.0",
+    "ioredis": "^5.8.1",
+    "node-cron": "^4.2.1",
+    "oracledb": "^6.9.0",
+    "redis": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.7.1",
+    "@types/oracledb": "^6.9.1",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

@@ -5,4 +5,7 @@
  */
 export const environment = {
   production: true,
+  apiUrl: '/api', // served by nginx proxy
+  cacheMonths: 3,
+  useBackendData: true, // always use backend in production
 };

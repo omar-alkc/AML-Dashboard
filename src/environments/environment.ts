@@ -10,4 +10,7 @@
 
 export const environment = {
   production: false,
+  apiUrl: 'http://localhost:3000/api',
+  cacheMonths: 3,
+  useBackendData: false, // false for dev (use mocks), true to test with backend
 };
