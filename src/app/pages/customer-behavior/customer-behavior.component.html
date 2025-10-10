@@ -8,8 +8,8 @@
             <span *ngIf="lastRefresh" class="last-updated">
               Last updated: {{ lastRefresh | date:'medium' }}
             </span>
-            <button class="btn btn-primary btn-sm" (click)="onRefreshClicked()">
-              <i class="icon-refresh"></i>
+            <button nbButton status="primary" size="small" (click)="onRefreshClicked()">
+              <nb-icon icon="refresh-outline"></nb-icon>
               Refresh Data
             </button>
           </div>
