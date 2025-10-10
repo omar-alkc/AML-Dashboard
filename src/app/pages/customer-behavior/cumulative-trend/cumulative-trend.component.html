@@ -1,0 +1,19 @@
+<div class="controls-row">
+  <div class="control-group">
+    <label>Aggregation:</label>
+    <div class="btn-group">
+      <button nbButton status="primary" size="small" [class.active]="aggregation === 'daily'" (click)="updateAggregation('daily')">Daily</button>
+      <button nbButton status="primary" size="small" [class.active]="aggregation === 'weekly'" (click)="updateAggregation('weekly')">Weekly</button>
+      <button nbButton status="primary" size="small" [class.active]="aggregation === 'monthly'" (click)="updateAggregation('monthly')">Monthly</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!loading" class="chart-container">
+  <chart type="line" [data]="chartData" [options]="options"></chart>
+</div>
+
+<div *ngIf="loading" class="chart-loader">
+  <nb-spinner status="primary"></nb-spinner>
+</div>
+

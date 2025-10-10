@@ -1,0 +1,45 @@
+.page-content {
+  padding: 1rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .last-updated {
+      font-size: 0.875rem;
+      color: #a4abb3;
+    }
+  }
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+nb-card {
+  margin-bottom: 2rem;
+  
+  nb-card-header {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  nb-card-body {
+    min-height: 300px;
+  }
+}
+

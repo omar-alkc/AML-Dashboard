@@ -26,6 +26,11 @@ const routes: Routes = [{
         .then(m => m.GoamlReportsModule),
     },
     {
+      path: 'customer-behavior',
+      loadChildren: () => import('./customer-behavior/customer-behavior.module')
+        .then(m => m.CustomerBehaviorModule),
+    },
+    {
       path: 'dashboard',
       component: ECommerceComponent,
     },

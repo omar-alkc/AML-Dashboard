@@ -1,0 +1,8 @@
+<div *ngIf="!loading" class="chart-container">
+  <div echarts [options]="options" class="echart"></div>
+</div>
+
+<div *ngIf="loading" class="chart-loader">
+  <nb-spinner status="primary"></nb-spinner>
+</div>
+

@@ -17,4 +17,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'file-text-outline',
     link: '/pages/goaml-reports',
   },
+  {
+    title: 'Customer Behavior',
+    icon: 'bar-chart-outline',
+    link: '/pages/customer-behavior',
+  },
 ];

@@ -1,0 +1,17 @@
+.chart-container {
+  height: 350px;
+  position: relative;
+
+  .echart {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.chart-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 350px;
+}
+

@@ -1,0 +1,60 @@
+<div *ngIf="!loading" class="kpis-container">
+  <!-- Credit KPIs Row -->
+  <div class="kpis-section">
+    <h4 class="section-title">Credit Transactions</h4>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let kpi of creditKpis">
+        <nb-card [status]="kpi.status" class="kpi-card">
+          <nb-card-body>
+            <div class="kpi-content">
+              <div class="kpi-icon">
+                <nb-icon [icon]="kpi.icon"></nb-icon>
+              </div>
+              <div class="kpi-details">
+                <div class="kpi-title">{{ kpi.title }}</div>
+                <div class="kpi-value">{{ kpi.value | number }}</div>
+                <div *ngIf="kpi.comparison" class="kpi-comparison" 
+                     [ngClass]="{'positive': kpi.comparison.isPositive, 'negative': !kpi.comparison.isPositive, 'neutral': kpi.comparison.isNeutral}">
+                  <nb-icon [icon]="kpi.comparison.isNeutral ? 'minus-outline' : (kpi.comparison.isPositive ? 'arrow-up-outline' : 'arrow-down-outline')"></nb-icon>
+                  <span>{{ kpi.comparison.percentageChange }}% vs previous period</span>
+                </div>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </div>
+
+  <!-- Debit KPIs Row -->
+  <div class="kpis-section">
+    <h4 class="section-title">Debit Transactions</h4>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let kpi of debitKpis">
+        <nb-card [status]="kpi.status" class="kpi-card">
+          <nb-card-body>
+            <div class="kpi-content">
+              <div class="kpi-icon">
+                <nb-icon [icon]="kpi.icon"></nb-icon>
+              </div>
+              <div class="kpi-details">
+                <div class="kpi-title">{{ kpi.title }}</div>
+                <div class="kpi-value">{{ kpi.value | number }}</div>
+                <div *ngIf="kpi.comparison" class="kpi-comparison" 
+                     [ngClass]="{'positive': kpi.comparison.isPositive, 'negative': !kpi.comparison.isPositive, 'neutral': kpi.comparison.isNeutral}">
+                  <nb-icon [icon]="kpi.comparison.isNeutral ? 'minus-outline' : (kpi.comparison.isPositive ? 'arrow-up-outline' : 'arrow-down-outline')"></nb-icon>
+                  <span>{{ kpi.comparison.percentageChange }}% vs previous period</span>
+                </div>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="loading-container">
+  <nb-spinner status="primary"></nb-spinner>
+</div>
+

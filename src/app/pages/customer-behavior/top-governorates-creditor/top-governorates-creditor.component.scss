@@ -1,0 +1,48 @@
+.controls-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+
+  .control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    label {
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: #a4abb3;
+      margin: 0;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 0.5rem;
+
+      button {
+        &.active {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.chart-container {
+  height: 350px;
+  position: relative;
+
+  .echart {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.chart-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 350px;
+}
+

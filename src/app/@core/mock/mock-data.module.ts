@@ -31,6 +31,7 @@ import { InvestigatorService } from './investigator.service';
 import { ScreeningService } from './screening.service';
 import { GoAmlReportService } from './goaml-report.service';
 import { WalletService } from './wallet.service';
+import { CustomerBehaviorService } from './customer-behavior.service';
 
 const SERVICES = [
   UserService,
@@ -61,6 +62,7 @@ const SERVICES = [
   ScreeningService,
   GoAmlReportService,
   WalletService,
+  CustomerBehaviorService,
 ];
 
 @NgModule({

@@ -1,0 +1,95 @@
+<div class="page-content">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Customer Behavior Analytics</h3>
+          <div class="header-actions">
+            <span *ngIf="lastRefresh" class="last-updated">
+              Last updated: {{ lastRefresh | date:'medium' }}
+            </span>
+            <button class="btn btn-primary btn-sm" (click)="onRefreshClicked()">
+              <i class="icon-refresh"></i>
+              Refresh Data
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <ngx-behavior-filters></ngx-behavior-filters>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPIs Row -->
+  <div class="row">
+    <div class="col-12">
+      <ngx-behavior-kpis [dateRange]="dateRange"></ngx-behavior-kpis>
+    </div>
+  </div>
+
+  <!-- Charts Row 1 - Transaction Trends (Full Width) -->
+  <div class="row">
+    <div class="col-md-12">
+      <nb-card>
+        <nb-card-header>Transaction Trends</nb-card-header>
+        <nb-card-body>
+          <ngx-transaction-trends [dateRange]="dateRange"></ngx-transaction-trends>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+
+  <!-- Charts Row 2 - Cumulative Transaction Trend (Full Width) -->
+  <div class="row">
+    <div class="col-md-12">
+      <nb-card>
+        <nb-card-header>Cumulative Transaction Trend</nb-card-header>
+        <nb-card-body>
+          <ngx-cumulative-trend [dateRange]="dateRange"></ngx-cumulative-trend>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+
+  <!-- Charts Row 3 - Amount Distribution & Hourly Frequency -->
+  <div class="row">
+    <div class="col-md-6">
+      <nb-card>
+        <nb-card-header>Transaction Amount Distribution</nb-card-header>
+        <nb-card-body>
+          <ngx-amount-distribution [dateRange]="dateRange"></ngx-amount-distribution>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-md-6">
+      <nb-card>
+        <nb-card-header>Hourly Transaction Frequency</nb-card-header>
+        <nb-card-body>
+          <ngx-hourly-frequency [dateRange]="dateRange"></ngx-hourly-frequency>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+
+  <!-- Charts Row 4 - Top Governorates -->
+  <div class="row">
+    <div class="col-md-6">
+      <nb-card>
+        <nb-card-header>Top Governorates (Creditor)</nb-card-header>
+        <nb-card-body>
+          <ngx-top-governorates-creditor [dateRange]="dateRange"></ngx-top-governorates-creditor>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-md-6">
+      <nb-card>
+        <nb-card-header>Top Governorates (Debtor)</nb-card-header>
+        <nb-card-body>
+          <ngx-top-governorates-debtor [dateRange]="dateRange"></ngx-top-governorates-debtor>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>
+

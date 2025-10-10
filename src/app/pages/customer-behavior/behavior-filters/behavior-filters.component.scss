@@ -1,0 +1,34 @@
+.filters-container {
+  .filter-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .date-label {
+    font-size: 0.875rem;
+    color: #a4abb3;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  .date-range-group {
+    margin-bottom: 0;
+  }
+
+  .preset-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+
+    button {
+      flex-shrink: 0;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+}
+

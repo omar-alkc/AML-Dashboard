@@ -1,0 +1,223 @@
+[
+  {
+    "id": "TXN001",
+    "wallet_id": "W001",
+    "wallet_type": "Individual Permanent",
+    "transaction_type": "Cash In",
+    "amount": 500,
+    "transaction_date": "2024-10-01",
+    "transaction_time": "09:15:23",
+    "creditor_governorate": "Cairo",
+    "debtor_governorate": "Cairo"
+  },
+  {
+    "id": "TXN002",
+    "wallet_id": "W002",
+    "wallet_type": "Business",
+    "transaction_type": "Domestic Transfer",
+    "amount": 15000,
+    "transaction_date": "2024-10-01",
+    "transaction_time": "10:30:45",
+    "creditor_governorate": "Giza",
+    "debtor_governorate": "Alexandria"
+  },
+  {
+    "id": "TXN003",
+    "wallet_id": "W003",
+    "wallet_type": "Merchant",
+    "transaction_type": "Merchant Payment",
+    "amount": 250,
+    "transaction_date": "2024-10-01",
+    "transaction_time": "11:45:12",
+    "creditor_governorate": "Alexandria",
+    "debtor_governorate": "Cairo"
+  },
+  {
+    "id": "TXN004",
+    "wallet_id": "W004",
+    "wallet_type": "Agent",
+    "transaction_type": "Cash Out",
+    "amount": 1000,
+    "transaction_date": "2024-10-01",
+    "transaction_time": "14:20:33",
+    "creditor_governorate": "Cairo",
+    "debtor_governorate": "Cairo"
+  },
+  {
+    "id": "TXN005",
+    "wallet_id": "W005",
+    "wallet_type": "Corporate",
+    "transaction_type": "Merchant Payment Gateway",
+    "amount": 50000,
+    "transaction_date": "2024-10-01",
+    "transaction_time": "15:10:21",
+    "creditor_governorate": "Cairo",
+    "debtor_governorate": "Giza"
+  },
+  {
+    "id": "TXN006",
+    "wallet_id": "W001",
+    "wallet_type": "Individual Permanent",
+    "transaction_type": "E-goods",
+    "amount": 350,
+    "transaction_date": "2024-10-02",
+    "transaction_time": "08:25:11",
+    "creditor_governorate": "Cairo",
+    "debtor_governorate": "Alexandria"
+  },
+  {
+    "id": "TXN007",
+    "wallet_id": "W006",
+    "wallet_type": "Individual Permanent",
+    "transaction_type": "Western Union Transfer",
+    "amount": 2500,
+    "transaction_date": "2024-10-02",
+    "transaction_time": "09:40:55",
+    "creditor_governorate": "Giza",
+    "debtor_governorate": "Cairo"
+  },
+  {
+    "id": "TXN008",
+    "wallet_id": "W002",
+    "wallet_type": "Business",
+    "transaction_type": "Cash In",
+    "amount": 25000,
+    "transaction_date": "2024-10-02",
+    "transaction_time": "10:15:44",
+    "creditor_governorate": "Alexandria",
+    "debtor_governorate": "Alexandria"
+  },
+  {
+    "id": "TXN009",
+    "wallet_id": "W007",
+    "wallet_type": "Merchant",
+    "transaction_type": "Merchant Payment",
+    "amount": 180,
+    "transaction_date": "2024-10-02",
+    "transaction_time": "11:30:22",
+    "creditor_governorate": "Cairo",
+    "debtor_governorate": "Giza"
+  },
+  {
+    "id": "TXN010",
+    "wallet_id": "W008",
+    "wallet_type": "Individual Permanent",
+    "transaction_type": "Domestic Transfer",
+    "amount": 800,
+    "transaction_date": "2024-10-02",
+    "transaction_time": "13:45:18",
+    "creditor_governorate": "Giza",
+    "debtor_governorate": "Cairo"
+  },
+  {
+    "id": "TXN011",
+    "wallet_id": "W009",
+    "wallet_type": "Agent",
+    "transaction_type": "Cash In",
+    "amount": 5000,
+    "transaction_date": "2024-10-03",
+    "transaction_time": "09:00:15",
+    "creditor_governorate": "Cairo",
+    "debtor_governorate": "Cairo"
+  },
+  {
+    "id": "TXN012",
+    "wallet_id": "W010",
+    "wallet_type": "Business",
+    "transaction_type": "Merchant Payment Gateway",
+    "amount": 35000,
+    "transaction_date": "2024-10-03",
+    "transaction_time": "10:20:33",
+    "creditor_governorate": "Alexandria",
+    "debtor_governorate": "Cairo"
+  },
+  {
+    "id": "TXN013",
+    "wallet_id": "W001",
+    "wallet_type": "Individual Permanent",
+    "transaction_type": "Cash Out",
+    "amount": 300,
+    "transaction_date": "2024-10-03",
+    "transaction_time": "11:50:28",
+    "creditor_governorate": "Cairo",
+    "debtor_governorate": "Cairo"
+  },
+  {
+    "id": "TXN014",
+    "wallet_id": "W011",
+    "wallet_type": "Corporate",
+    "transaction_type": "Domestic Transfer",
+    "amount": 75000,
+    "transaction_date": "2024-10-03",
+    "transaction_time": "14:10:42",
+    "creditor_governorate": "Giza",
+    "debtor_governorate": "Alexandria"
+  },
+  {
+    "id": "TXN015",
+    "wallet_id": "W003",
+    "wallet_type": "Merchant",
+    "transaction_type": "Merchant Payment",
+    "amount": 420,
+    "transaction_date": "2024-10-03",
+    "transaction_time": "16:25:11",
+    "creditor_governorate": "Cairo",
+    "debtor_governorate": "Cairo"
+  },
+  {
+    "id": "TXN016",
+    "wallet_id": "W012",
+    "wallet_type": "Individual Permanent",
+    "transaction_type": "E-goods",
+    "amount": 199,
+    "transaction_date": "2024-10-04",
+    "transaction_time": "08:35:47",
+    "creditor_governorate": "Alexandria",
+    "debtor_governorate": "Cairo"
+  },
+  {
+    "id": "TXN017",
+    "wallet_id": "W013",
+    "wallet_type": "Business",
+    "transaction_type": "Cash In",
+    "amount": 18000,
+    "transaction_date": "2024-10-04",
+    "transaction_time": "09:45:22",
+    "creditor_governorate": "Giza",
+    "debtor_governorate": "Giza"
+  },
+  {
+    "id": "TXN018",
+    "wallet_id": "W004",
+    "wallet_type": "Agent",
+    "transaction_type": "Cash Out",
+    "amount": 2200,
+    "transaction_date": "2024-10-04",
+    "transaction_time": "11:10:55",
+    "creditor_governorate": "Cairo",
+    "debtor_governorate": "Alexandria"
+  },
+  {
+    "id": "TXN019",
+    "wallet_id": "W014",
+    "wallet_type": "Individual Permanent",
+    "transaction_type": "Western Union Transfer",
+    "amount": 1800,
+    "transaction_date": "2024-10-04",
+    "transaction_time": "13:30:18",
+    "creditor_governorate": "Giza",
+    "debtor_governorate": "Cairo"
+  },
+  {
+    "id": "TXN020",
+    "wallet_id": "W005",
+    "wallet_type": "Corporate",
+    "transaction_type": "Domestic Transfer",
+    "amount": 120000,
+    "transaction_date": "2024-10-04",
+    "transaction_time": "15:55:33",
+    "creditor_governorate": "Cairo",
+    "debtor_governorate": "Giza"
+  }
+]
+
