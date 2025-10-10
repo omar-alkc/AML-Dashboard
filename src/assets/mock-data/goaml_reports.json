@@ -5,15 +5,19 @@
     "report_type": "SAR",
     "submitted_by": "Bdoor qasim",
     "status": "Sent",
-    "reason": "Trading activity"
+    "reason": "Trading activity",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
   },
   {
     "report_id": "SAR-002",
     "submitted_at": "2025-09-05",
-    "report_type": "CTR",
+    "report_type": "SAR",
     "submitted_by": "aya.raed",
-    "status": "Draft",
-    "reason": "Crypto trading activity"
+    "status": "Sent",
+    "reason": "Crypto trading activity",
+    "wallet_type": "Business wallet",
+    "source": "Eastnets"
   },
   {
     "report_id": "STR-003",
@@ -21,6 +25,528 @@
     "report_type": "STR",
     "submitted_by": "Rana hayder",
     "status": "Sent",
-    "reason": "Crypto trading activity"
+    "reason": "Crypto trading activity",
+    "wallet_type": "Merchant wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-004",
+    "submitted_at": "2025-09-08",
+    "report_type": "CTR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-005",
+    "submitted_at": "2025-09-10",
+    "report_type": "SAR",
+    "submitted_by": "aya.raed",
+    "status": "Pending",
+    "reason": "Suspicious pattern",
+    "wallet_type": "Agent wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "STR-006",
+    "submitted_at": "2025-09-12",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Multiple small transactions",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-007",
+    "submitted_at": "2025-09-15",
+    "report_type": "CTR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Business wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-008",
+    "submitted_at": "2025-09-18",
+    "report_type": "SAR",
+    "submitted_by": "Ahmad ali",
+    "status": "Sent",
+    "reason": "Trading activity",
+    "wallet_type": "Merchant wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "SAR-009",
+    "submitted_at": "2025-09-20",
+    "report_type": "SAR",
+    "submitted_by": "aya.raed",
+    "status": "Sent",
+    "reason": "Crypto trading activity",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "STR-010",
+    "submitted_at": "2025-09-22",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Suspicious pattern",
+    "wallet_type": "Agent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-011",
+    "submitted_at": "2025-09-25",
+    "report_type": "CTR",
+    "submitted_by": "Ahmad ali",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Business wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-012",
+    "submitted_at": "2025-09-28",
+    "report_type": "SAR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Multiple small transactions",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "SAR-013",
+    "submitted_at": "2025-09-30",
+    "report_type": "SAR",
+    "submitted_by": "aya.raed",
+    "status": "Pending",
+    "reason": "Trading activity",
+    "wallet_type": "Merchant wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "STR-014",
+    "submitted_at": "2025-10-01",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Crypto trading activity",
+    "wallet_type": "Business wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-015",
+    "submitted_at": "2025-10-02",
+    "report_type": "CTR",
+    "submitted_by": "Ahmad ali",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-016",
+    "submitted_at": "2025-10-03",
+    "report_type": "SAR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Suspicious pattern",
+    "wallet_type": "Agent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-017",
+    "submitted_at": "2025-10-04",
+    "report_type": "SAR",
+    "submitted_by": "aya.raed",
+    "status": "Sent",
+    "reason": "Trading activity",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "STR-018",
+    "submitted_at": "2025-10-05",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Multiple small transactions",
+    "wallet_type": "Business wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-019",
+    "submitted_at": "2025-10-06",
+    "report_type": "CTR",
+    "submitted_by": "Ahmad ali",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Merchant wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-020",
+    "submitted_at": "2025-10-07",
+    "report_type": "SAR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Crypto trading activity",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "SAR-021",
+    "submitted_at": "2025-10-08",
+    "report_type": "SAR",
+    "submitted_by": "aya.raed",
+    "status": "Draft",
+    "reason": "Suspicious pattern",
+    "wallet_type": "Agent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "STR-022",
+    "submitted_at": "2025-10-09",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Trading activity",
+    "wallet_type": "Business wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-023",
+    "submitted_at": "2025-10-09",
+    "report_type": "CTR",
+    "submitted_by": "Ahmad ali",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-024",
+    "submitted_at": "2025-10-10",
+    "report_type": "SAR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Multiple small transactions",
+    "wallet_type": "Merchant wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "SAR-025",
+    "submitted_at": "2025-08-15",
+    "report_type": "SAR",
+    "submitted_by": "aya.raed",
+    "status": "Sent",
+    "reason": "Trading activity",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "STR-026",
+    "submitted_at": "2025-08-18",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Crypto trading activity",
+    "wallet_type": "Business wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-027",
+    "submitted_at": "2025-08-20",
+    "report_type": "CTR",
+    "submitted_by": "Ahmad ali",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Agent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-028",
+    "submitted_at": "2025-08-22",
+    "report_type": "SAR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Suspicious pattern",
+    "wallet_type": "Merchant wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "SAR-029",
+    "submitted_at": "2025-08-25",
+    "report_type": "SAR",
+    "submitted_by": "aya.raed",
+    "status": "Sent",
+    "reason": "Multiple small transactions",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "STR-030",
+    "submitted_at": "2025-08-28",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Trading activity",
+    "wallet_type": "Business wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-031",
+    "submitted_at": "2025-08-30",
+    "report_type": "CTR",
+    "submitted_by": "Ahmad ali",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-032",
+    "submitted_at": "2025-09-01",
+    "report_type": "SAR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Crypto trading activity",
+    "wallet_type": "Agent wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "SAR-033",
+    "submitted_at": "2025-09-03",
+    "report_type": "SAR",
+    "submitted_by": "aya.raed",
+    "status": "Sent",
+    "reason": "Suspicious pattern",
+    "wallet_type": "Merchant wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "STR-034",
+    "submitted_at": "2025-09-07",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Multiple small transactions",
+    "wallet_type": "Business wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-035",
+    "submitted_at": "2025-09-09",
+    "report_type": "CTR",
+    "submitted_by": "Ahmad ali",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-036",
+    "submitted_at": "2025-09-11",
+    "report_type": "SAR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Trading activity",
+    "wallet_type": "Business wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "SAR-037",
+    "submitted_at": "2025-09-13",
+    "report_type": "SAR",
+    "submitted_by": "aya.raed",
+    "status": "Sent",
+    "reason": "Crypto trading activity",
+    "wallet_type": "Agent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "STR-038",
+    "submitted_at": "2025-09-14",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Suspicious pattern",
+    "wallet_type": "Merchant wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-039",
+    "submitted_at": "2025-09-16",
+    "report_type": "CTR",
+    "submitted_by": "Ahmad ali",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-040",
+    "submitted_at": "2025-09-17",
+    "report_type": "SAR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Multiple small transactions",
+    "wallet_type": "Business wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "SAR-041",
+    "submitted_at": "2025-09-19",
+    "report_type": "SAR",
+    "submitted_by": "aya.raed",
+    "status": "Sent",
+    "reason": "Trading activity",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "STR-042",
+    "submitted_at": "2025-09-21",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Crypto trading activity",
+    "wallet_type": "Agent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-043",
+    "submitted_at": "2025-09-23",
+    "report_type": "CTR",
+    "submitted_by": "Ahmad ali",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Merchant wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-044",
+    "submitted_at": "2025-09-24",
+    "report_type": "SAR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Suspicious pattern",
+    "wallet_type": "Business wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "SAR-045",
+    "submitted_at": "2025-09-26",
+    "report_type": "SAR",
+    "submitted_by": "aya.raed",
+    "status": "Sent",
+    "reason": "Multiple small transactions",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "STR-046",
+    "submitted_at": "2025-09-27",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Trading activity",
+    "wallet_type": "Agent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-047",
+    "submitted_at": "2025-09-29",
+    "report_type": "CTR",
+    "submitted_by": "Ahmad ali",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Merchant wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-048",
+    "submitted_at": "2025-10-01",
+    "report_type": "SAR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Crypto trading activity",
+    "wallet_type": "Business wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "SAR-049",
+    "submitted_at": "2025-10-02",
+    "report_type": "SAR",
+    "submitted_by": "aya.raed",
+    "status": "Sent",
+    "reason": "Suspicious pattern",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "STR-050",
+    "submitted_at": "2025-10-03",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Multiple small transactions",
+    "wallet_type": "Agent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-051",
+    "submitted_at": "2025-10-04",
+    "report_type": "CTR",
+    "submitted_by": "Ahmad ali",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Business wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "SAR-052",
+    "submitted_at": "2025-10-05",
+    "report_type": "SAR",
+    "submitted_by": "Bdoor qasim",
+    "status": "Sent",
+    "reason": "Trading activity",
+    "wallet_type": "Merchant wallet",
+    "source": "Eastnets"
+  },
+  {
+    "report_id": "SAR-053",
+    "submitted_at": "2025-10-06",
+    "report_type": "SAR",
+    "submitted_by": "aya.raed",
+    "status": "Sent",
+    "reason": "Crypto trading activity",
+    "wallet_type": "Individual Permanent wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "STR-054",
+    "submitted_at": "2025-10-07",
+    "report_type": "STR",
+    "submitted_by": "Rana hayder",
+    "status": "Sent",
+    "reason": "Suspicious pattern",
+    "wallet_type": "Business wallet",
+    "source": "Google Sheet"
+  },
+  {
+    "report_id": "CTR-055",
+    "submitted_at": "2025-10-08",
+    "report_type": "CTR",
+    "submitted_by": "Ahmad ali",
+    "status": "Sent",
+    "reason": "Large transaction",
+    "wallet_type": "Agent wallet",
+    "source": "Google Sheet"
   }
 ]

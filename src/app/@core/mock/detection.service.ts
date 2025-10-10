@@ -90,4 +90,13 @@ export class DetectionService implements DetectionsData {
     const processedStatuses = ['Sent SAR', 'Suspicious Final', 'False Positive Final'];
     return filtered.filter(d => processedStatuses.includes(d.status)).length;
   }
+
+  getPendingSARCount(): number {
+    // Get pending SAR alerts (Cashout & SAR scenarios that are not yet sent)
+    const pendingStatuses = ['New', 'Delayed', 'Waiting for Evidence', 'Suspicious Initial'];
+    return this.data.filter(d => 
+      (d.scenario_name === 'CO' || d.scenario_name === 'SAR') && 
+      pendingStatuses.includes(d.status)
+    ).length;
+  }
 }

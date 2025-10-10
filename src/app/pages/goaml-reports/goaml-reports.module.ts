@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -22,6 +22,12 @@ import { ThemeModule } from '../../@theme/theme.module';
 
 // Components
 import { GoamlReportsComponent } from './goaml-reports.component';
+import { GoamlFiltersComponent } from './goaml-filters/goaml-filters.component';
+import { GoamlKpisComponent } from './goaml-kpis/goaml-kpis.component';
+import { GoamlWorkTimelineComponent } from './goaml-work-timeline/goaml-work-timeline.component';
+import { ReportsByReporterComponent } from './reports-by-reporter/reports-by-reporter.component';
+import { ReportReasonsPieComponent } from './report-reasons-pie/report-reasons-pie.component';
+import { WalletTypePieComponent } from './wallet-type-pie/wallet-type-pie.component';
 
 @NgModule({
   imports: [
@@ -49,8 +55,15 @@ import { GoamlReportsComponent } from './goaml-reports.component';
     ChartModule,
     NgxEchartsModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     GoamlReportsComponent,
+    GoamlFiltersComponent,
+    GoamlKpisComponent,
+    GoamlWorkTimelineComponent,
+    ReportsByReporterComponent,
+    ReportReasonsPieComponent,
+    WalletTypePieComponent,
   ],
 })
 export class GoamlReportsModule {

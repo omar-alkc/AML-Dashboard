@@ -1,0 +1,32 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  .date-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: nb-theme(text-hint-color);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .preset-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    height: 100%;
+    padding-top: 1.5rem;
+    
+    button {
+      flex: 0 0 auto;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 0;
+  }
+}
+

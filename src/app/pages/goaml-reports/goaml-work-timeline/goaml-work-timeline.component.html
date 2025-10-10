@@ -1,0 +1,16 @@
+<div class="chart-controls">
+  <div class="bucket-buttons">
+    <button class="btn btn-sm btn-primary" [class.active]="bucketSize === 'day'" (click)="updateBucketSize('day')">Day</button>
+    <button class="btn btn-sm btn-primary" [class.active]="bucketSize === 'week'" (click)="updateBucketSize('week')">Week</button>
+    <button class="btn btn-sm btn-primary" [class.active]="bucketSize === 'month'" (click)="updateBucketSize('month')">Month</button>
+  </div>
+</div>
+
+<div class="chart-container" *ngIf="!loading">
+  <chart type="line" [data]="chartData" [options]="options"></chart>
+</div>
+
+<div *ngIf="loading" class="chart-loader">
+  <nb-spinner status="primary"></nb-spinner>
+</div>
+

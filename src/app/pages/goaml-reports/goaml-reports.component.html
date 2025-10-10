@@ -1,20 +1,74 @@
 <div class="page-content">
-  <div class="card">
-    <div class="card-header">
-      <h3>goAML Reports Dashboard</h3>
-    </div>
-    <div class="card-body">
-      <p>This page will contain goAML report-related visualizations and KPIs.</p>
-      <p>Coming soon...</p>
-      <div class="placeholder-content">
-        <h4>Planned Features:</h4>
-        <ul>
-          <li>Report submission trends</li>
-          <li>Report status tracking</li>
-          <li>Compliance metrics</li>
-          <li>Regulatory reporting KPIs</li>
-        </ul>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>GoAML Reports Dashboard</h3>
+          <div class="header-actions">
+            <span *ngIf="lastRefresh" class="last-updated">
+              Last updated: {{ lastRefresh | date:'medium' }}
+            </span>
+            <button class="btn btn-primary btn-sm" (click)="onRefreshClicked()">
+              <i class="icon-refresh"></i>
+              Refresh Data
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <ngx-goaml-filters></ngx-goaml-filters>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <!-- KPIs Row -->
+  <div class="row">
+    <div class="col-12">
+      <ngx-goaml-kpis [dateRange]="dateRange"></ngx-goaml-kpis>
+    </div>
+  </div>
+
+  <!-- Charts Row 1: Timeline Chart -->
+  <div class="row">
+    <div class="col-12">
+      <nb-card>
+        <nb-card-header>GoAML Reporting Work per Time</nb-card-header>
+        <nb-card-body>
+          <ngx-goaml-work-timeline [dateRange]="dateRange"></ngx-goaml-work-timeline>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+
+  <!-- Charts Row 2: Bar Chart and Reasons Pie Chart -->
+  <div class="row">
+    <div class="col-md-6">
+      <nb-card>
+        <nb-card-header>Sent GoAML Reports by Reporter</nb-card-header>
+        <nb-card-body>
+          <ngx-reports-by-reporter [dateRange]="dateRange"></ngx-reports-by-reporter>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-md-6">
+      <nb-card>
+        <nb-card-header>Report Reasons Distribution</nb-card-header>
+        <nb-card-body>
+          <ngx-report-reasons-pie [dateRange]="dateRange"></ngx-report-reasons-pie>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+
+  <!-- Charts Row 3: Wallet Type Pie Chart -->
+  <div class="row">
+    <div class="col-md-12">
+      <nb-card>
+        <nb-card-header>Reported Wallet Type Distribution</nb-card-header>
+        <nb-card-body>
+          <ngx-wallet-type-pie [dateRange]="dateRange"></ngx-wallet-type-pie>
+        </nb-card-body>
+      </nb-card>
     </div>
   </div>
 </div>

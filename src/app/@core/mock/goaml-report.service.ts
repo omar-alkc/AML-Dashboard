@@ -44,10 +44,114 @@ export class GoAmlReportService implements GoAmlReportData {
     return this.data.filter((report) => report.submitted_by === investigator);
   }
 
-  // Additional helper methods for KPIs
-  getSARFiledCount(start: string, end: string): number {
+  // KPI methods
+  getSentSARCount(start: string, end: string): number {
     const filtered = this.getReportsByDateRange(start, end);
     return filtered.filter(r => r.report_type === 'SAR' && r.status === 'Sent').length;
+  }
+
+  getSentSTRCount(start: string, end: string): number {
+    const filtered = this.getReportsByDateRange(start, end);
+    return filtered.filter(r => r.report_type === 'STR' && r.status === 'Sent').length;
+  }
+
+  getSentCTRCount(start: string, end: string): number {
+    const filtered = this.getReportsByDateRange(start, end);
+    return filtered.filter(r => r.report_type === 'CTR' && r.status === 'Sent').length;
+  }
+
+  // Chart data methods
+  getReportingWorkTimeseries(start: string, end: string): any {
+    const filtered = this.getReportsByDateRange(start, end);
+    
+    // Group by date and type
+    const timeseries: { [key: string]: { [key: string]: number } } = {};
+    
+    filtered.forEach(report => {
+      const date = report.submitted_at;
+      if (!timeseries[date]) {
+        timeseries[date] = {};
+      }
+      
+      const key = `${report.report_type}-${report.source}`;
+      if (!timeseries[date][key]) {
+        timeseries[date][key] = 0;
+      }
+      timeseries[date][key]++;
+    });
+    
+    return timeseries;
+  }
+
+  getReportsByReporter(start: string, end: string): any {
+    const filtered = this.getReportsByDateRange(start, end);
+    
+    // Group by reporter and report type
+    const byReporter: { [key: string]: { [key: string]: number } } = {};
+    
+    filtered.forEach(report => {
+      if (report.status === 'Sent') {
+        if (!byReporter[report.submitted_by]) {
+          byReporter[report.submitted_by] = {};
+        }
+        
+        if (!byReporter[report.submitted_by][report.report_type]) {
+          byReporter[report.submitted_by][report.report_type] = 0;
+        }
+        byReporter[report.submitted_by][report.report_type]++;
+      }
+    });
+    
+    return byReporter;
+  }
+
+  getReasonDistribution(start: string, end: string): any {
+    const filtered = this.getReportsByDateRange(start, end);
+    
+    // Group by reason with report type breakdown
+    const distribution: { [key: string]: { total: number; byType: { [key: string]: number } } } = {};
+    
+    filtered.forEach(report => {
+      if (!distribution[report.reason]) {
+        distribution[report.reason] = { total: 0, byType: {} };
+      }
+      
+      distribution[report.reason].total++;
+      
+      if (!distribution[report.reason].byType[report.report_type]) {
+        distribution[report.reason].byType[report.report_type] = 0;
+      }
+      distribution[report.reason].byType[report.report_type]++;
+    });
+    
+    return distribution;
+  }
+
+  getWalletTypeDistribution(start: string, end: string): any {
+    const filtered = this.getReportsByDateRange(start, end);
+    
+    // Group by wallet type with report type breakdown
+    const distribution: { [key: string]: { total: number; byType: { [key: string]: number } } } = {};
+    
+    filtered.forEach(report => {
+      if (!distribution[report.wallet_type]) {
+        distribution[report.wallet_type] = { total: 0, byType: {} };
+      }
+      
+      distribution[report.wallet_type].total++;
+      
+      if (!distribution[report.wallet_type].byType[report.report_type]) {
+        distribution[report.wallet_type].byType[report.report_type] = 0;
+      }
+      distribution[report.wallet_type].byType[report.report_type]++;
+    });
+    
+    return distribution;
+  }
+
+  // Legacy methods for backwards compatibility
+  getSARFiledCount(start: string, end: string): number {
+    return this.getSentSARCount(start, end);
   }
 
   getLateSubmissionsCount(start: string, end: string): number {

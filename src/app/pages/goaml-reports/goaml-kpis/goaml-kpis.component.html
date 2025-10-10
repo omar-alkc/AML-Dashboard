@@ -1,0 +1,32 @@
+<div class="kpi-grid" *ngIf="!loading">
+  <div class="kpi-item" *ngFor="let kpi of kpis">
+    <nb-card [ngClass]="'kpi-card status-' + kpi.status">
+      <nb-card-body class="d-flex align-items-center">
+        <div class="icon-container">
+          <nb-icon [icon]="kpi.icon" [status]="kpi.status"></nb-icon>
+        </div>
+        <div class="info">
+          <div class="title">{{ kpi.title }}</div>
+          <div class="value">{{ kpi.value }}</div>
+          <div class="comparison" *ngIf="kpi.comparison">
+            <span
+              class="comparison-text"
+              [class.positive]="kpi.comparison.isPositive && !kpi.comparison.isNeutral"
+              [class.negative]="!kpi.comparison.isPositive && !kpi.comparison.isNeutral"
+              [class.neutral]="kpi.comparison.isNeutral">
+              {{ kpi.comparison.absoluteChange >= 0 ? '+' : '' }}{{ kpi.comparison.absoluteChange }}
+              ({{ kpi.comparison.percentageChange >= 0 ? '+' : '' }}{{ kpi.comparison.percentageChange }}%)
+            </span>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row" *ngIf="loading">
+  <div class="col-12 text-center p-5">
+    <nb-spinner status="primary"></nb-spinner>
+  </div>
+</div>
+
