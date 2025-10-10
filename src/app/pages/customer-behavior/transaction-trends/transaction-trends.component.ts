@@ -93,45 +93,22 @@ export class TransactionTrendsComponent implements OnInit, OnChanges {
 
     const transactions = this.behaviorService.getTransactionsByFilters(filters);
 
-    // Separate credit and debit transactions
-    const creditTypes = ['Cash In', 'Domestic Transfer', 'Western Union Transfer'];
-    const debitTypes = ['Cash Out', 'Merchant Payment', 'Merchant Payment Gateway', 'E-goods'];
-
-    const creditTransactions = transactions.filter(t => creditTypes.includes(t.transaction_type));
-    const debitTransactions = transactions.filter(t => debitTypes.includes(t.transaction_type));
-
-    // Prepare data points
-    const creditData = creditTransactions.map(t => ({
-      date: t.transaction_date,
-      value: this.metric === 'amount' ? t.amount : 1,
-    }));
-
-    const debitData = debitTransactions.map(t => ({
+    // Prepare data points for all transactions
+    const allData = transactions.map(t => ({
       date: t.transaction_date,
       value: this.metric === 'amount' ? t.amount : 1,
     }));
 
     // Group by time buckets
     const bucketSize = this.aggregation === 'weekly' ? 'week' : 'month';
-    const creditTimeseries = this.dataProcessingService.groupTimeseriesByBucket(
-      creditData,
+    const timeseries = this.dataProcessingService.groupTimeseriesByBucket(
+      allData,
       bucketSize as any,
       'value',
     );
 
-    const debitTimeseries = this.dataProcessingService.groupTimeseriesByBucket(
-      debitData,
-      bucketSize as any,
-      'value',
-    );
-
-    // Calculate averages
-    const creditAvg = creditTimeseries.map(item => ({
-      ...item,
-      value: this.metric === 'count' ? item.value : item.value,
-    }));
-
-    const debitAvg = debitTimeseries.map(item => ({
+    // Calculate totals or averages based on metric
+    const processedData = timeseries.map(item => ({
       ...item,
       value: this.metric === 'count' ? item.value : item.value,
     }));
@@ -140,24 +117,14 @@ export class TransactionTrendsComponent implements OnInit, OnChanges {
     this.chartData = {
       datasets: [
         {
-          label: this.metric === 'amount' ? 'Avg. Credit Amount' : 'Credit Count',
-          data: creditAvg.map(item => ({
+          label: this.metric === 'amount' ? 'Total Transaction Amount' : 'Transaction Count',
+          data: processedData.map(item => ({
             t: new Date(item.date),
             y: item.value,
           })),
           fill: false,
-          borderColor: '#00d68f',
-          pointBackgroundColor: '#00d68f',
-        },
-        {
-          label: this.metric === 'amount' ? 'Avg. Debit Amount' : 'Debit Count',
-          data: debitAvg.map(item => ({
-            t: new Date(item.date),
-            y: item.value,
-          })),
-          fill: false,
-          borderColor: '#ff3d71',
-          pointBackgroundColor: '#ff3d71',
+          borderColor: '#36a2eb',
+          pointBackgroundColor: '#36a2eb',
         },
       ],
     };

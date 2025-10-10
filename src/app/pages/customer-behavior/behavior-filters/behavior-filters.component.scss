@@ -1,34 +1,42 @@
-.filters-container {
-  .filter-label {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
+@import '../../../@theme/styles/themes';
 
-  .date-label {
-    font-size: 0.875rem;
-    color: #a4abb3;
-    margin-bottom: 0.25rem;
-    display: block;
-  }
-
-  .date-range-group {
-    margin-bottom: 0;
-  }
-
-  .preset-buttons {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-
-    button {
-      flex-shrink: 0;
+@include nb-install-component() {
+  .filters-container {
+    .filter-label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: block;
+      color: nb-theme(text-basic-color);
     }
-  }
 
-  .form-group {
-    margin-bottom: 1rem;
+    .date-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: nb-theme(text-hint-color);
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .date-range-group {
+      margin-bottom: 0;
+    }
+
+    .preset-buttons {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+
+      button {
+        flex-shrink: 0;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
   }
 }
 

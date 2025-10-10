@@ -29,15 +29,25 @@
   }
 }
 
-.chart-container {
-  height: 350px;
-  position: relative;
-}
+@import '../../../@theme/styles/themes';
 
-.chart-loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 350px;
+@include nb-install-component() {
+  .chart-container {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    
+    chart {
+      height: 80% !important;
+      width: 100% !important;
+    }
+  }
+
+  .chart-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+  }
 }
 

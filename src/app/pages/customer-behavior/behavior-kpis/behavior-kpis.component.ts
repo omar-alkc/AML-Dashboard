@@ -27,8 +27,9 @@ interface KpiCard {
 export class BehaviorKpisComponent implements OnInit, OnChanges, OnDestroy {
   @Input() dateRange: DateRange;
 
-  creditKpis: KpiCard[] = [];
-  debitKpis: KpiCard[] = [];
+  totalKpis: KpiCard[] = [];
+  averageKpis: KpiCard[] = [];
+  maxKpis: KpiCard[] = [];
   loading = true;
   currentTheme = 'dark';
   private destroy$ = new Subject<void>();
@@ -84,53 +85,57 @@ export class BehaviorKpisComponent implements OnInit, OnChanges, OnDestroy {
     // Calculate previous period KPIs
     const previousKPIs = this.behaviorService.getKPIs(previousFilters);
 
-    // Credit KPIs (Row 1)
-    this.creditKpis = [
+    // Total KPIs (Row 1)
+    this.totalKpis = [
       {
-        title: 'Avg. Credit Amount',
-        value: currentKPIs.avgCreditAmount,
-        status: 'success',
+        title: 'Total Transaction Amount',
+        value: currentKPIs.totalTransactionAmount,
+        status: 'primary',
         icon: 'trending-up-outline',
-        comparison: this.calculateComparison(currentKPIs.avgCreditAmount, previousKPIs.avgCreditAmount, true, true),
+        comparison: this.calculateComparison(currentKPIs.totalTransactionAmount, previousKPIs.totalTransactionAmount, true, true),
       },
       {
-        title: 'Avg. Credit Count',
-        value: currentKPIs.avgCreditCount,
+        title: 'Total Transaction Count',
+        value: currentKPIs.totalTransactionCount,
         status: 'info',
         icon: 'hash-outline',
-        comparison: this.calculateComparison(currentKPIs.avgCreditCount, previousKPIs.avgCreditCount, true, true),
-      },
-      {
-        title: 'Max Credit Amount',
-        value: currentKPIs.maxCreditAmount,
-        status: 'primary',
-        icon: 'arrow-up-outline',
-        comparison: this.calculateComparison(currentKPIs.maxCreditAmount, previousKPIs.maxCreditAmount, true, true),
+        comparison: this.calculateComparison(currentKPIs.totalTransactionCount, previousKPIs.totalTransactionCount, true, true),
       },
     ];
 
-    // Debit KPIs (Row 2)
-    this.debitKpis = [
+    // Average KPIs (Row 2)
+    this.averageKpis = [
       {
-        title: 'Avg. Debit Amount',
-        value: currentKPIs.avgDebitAmount,
+        title: 'Avg. Transaction Amount',
+        value: currentKPIs.avgTransactionAmount,
+        status: 'success',
+        icon: 'bar-chart-outline',
+        comparison: this.calculateComparison(currentKPIs.avgTransactionAmount, previousKPIs.avgTransactionAmount, true, true),
+      },
+      {
+        title: 'Avg. Transaction Count',
+        value: currentKPIs.avgTransactionCount,
         status: 'warning',
-        icon: 'trending-down-outline',
-        comparison: this.calculateComparison(currentKPIs.avgDebitAmount, previousKPIs.avgDebitAmount, true, true),
+        icon: 'activity-outline',
+        comparison: this.calculateComparison(currentKPIs.avgTransactionCount, previousKPIs.avgTransactionCount, true, true),
       },
+    ];
+
+    // Max KPIs (Row 3)
+    this.maxKpis = [
       {
-        title: 'Avg. Debit Count',
-        value: currentKPIs.avgDebitCount,
-        status: 'info',
-        icon: 'hash-outline',
-        comparison: this.calculateComparison(currentKPIs.avgDebitCount, previousKPIs.avgDebitCount, true, true),
-      },
-      {
-        title: 'Max Debit Amount',
-        value: currentKPIs.maxDebitAmount,
+        title: 'Max Transaction Amount',
+        value: currentKPIs.maxTransactionAmount,
         status: 'danger',
-        icon: 'arrow-down-outline',
-        comparison: this.calculateComparison(currentKPIs.maxDebitAmount, previousKPIs.maxDebitAmount, true, true),
+        icon: 'arrow-up-outline',
+        comparison: this.calculateComparison(currentKPIs.maxTransactionAmount, previousKPIs.maxTransactionAmount, true, true),
+      },
+      {
+        title: 'Max Transaction Count',
+        value: currentKPIs.maxTransactionCount,
+        status: 'warning',
+        icon: 'maximize-outline',
+        comparison: this.calculateComparison(currentKPIs.maxTransactionCount, previousKPIs.maxTransactionCount, true, true),
       },
     ];
 

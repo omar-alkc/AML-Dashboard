@@ -111,36 +111,43 @@ export class CustomerBehaviorService extends CustomerBehaviorData {
   getKPIs(filters: BehaviorFilters): BehaviorKPIs {
     const transactions = this.getTransactionsByFilters(filters);
     
-    // Separate by transaction direction (credit = Cash In, debit = Cash Out, Transfer)
-    const creditTypes = ['Cash In', 'Domestic Transfer', 'Western Union Transfer'];
-    const debitTypes = ['Cash Out', 'Merchant Payment', 'Merchant Payment Gateway', 'E-goods'];
-    
-    const creditTransactions = transactions.filter(t => creditTypes.includes(t.transaction_type));
-    const debitTransactions = transactions.filter(t => debitTypes.includes(t.transaction_type));
+    if (transactions.length === 0) {
+      return {
+        totalTransactionAmount: 0,
+        totalTransactionCount: 0,
+        avgTransactionAmount: 0,
+        avgTransactionCount: 0,
+        maxTransactionAmount: 0,
+        maxTransactionCount: 0,
+      };
+    }
 
-    const avgCreditAmount = creditTransactions.length > 0
-      ? creditTransactions.reduce((sum, t) => sum + t.amount, 0) / creditTransactions.length
-      : 0;
+    const totalTransactionAmount = transactions.reduce((sum, t) => sum + t.amount, 0);
+    const totalTransactionCount = transactions.length;
+    const avgTransactionAmount = totalTransactionAmount / totalTransactionCount;
+    const maxTransactionAmount = Math.max(...transactions.map(t => t.amount));
 
-    const avgDebitAmount = debitTransactions.length > 0
-      ? debitTransactions.reduce((sum, t) => sum + t.amount, 0) / debitTransactions.length
-      : 0;
+    // Calculate average transaction count per day
+    const startDate = new Date(filters.startDate);
+    const endDate = new Date(filters.endDate);
+    const daysDiff = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+    const avgTransactionCount = totalTransactionCount / daysDiff;
 
-    const maxCreditAmount = creditTransactions.length > 0
-      ? Math.max(...creditTransactions.map(t => t.amount))
-      : 0;
-
-    const maxDebitAmount = debitTransactions.length > 0
-      ? Math.max(...debitTransactions.map(t => t.amount))
-      : 0;
+    // Max transaction count per day
+    const dailyCounts = new Map<string, number>();
+    transactions.forEach(t => {
+      const date = t.transaction_date;
+      dailyCounts.set(date, (dailyCounts.get(date) || 0) + 1);
+    });
+    const maxTransactionCount = Math.max(...Array.from(dailyCounts.values()), 0);
 
     return {
-      avgCreditAmount: Math.round(avgCreditAmount),
-      avgCreditCount: creditTransactions.length,
-      maxCreditAmount: maxCreditAmount,
-      avgDebitAmount: Math.round(avgDebitAmount),
-      avgDebitCount: debitTransactions.length,
-      maxDebitAmount: maxDebitAmount,
+      totalTransactionAmount: Math.round(totalTransactionAmount),
+      totalTransactionCount: totalTransactionCount,
+      avgTransactionAmount: Math.round(avgTransactionAmount),
+      avgTransactionCount: Math.round(avgTransactionCount),
+      maxTransactionAmount: maxTransactionAmount,
+      maxTransactionCount: maxTransactionCount,
     };
   }
 

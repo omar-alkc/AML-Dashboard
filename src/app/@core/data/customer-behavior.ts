@@ -18,12 +18,12 @@ export interface BehaviorFilters {
 }
 
 export interface BehaviorKPIs {
-  avgCreditAmount: number;
-  avgCreditCount: number;
-  maxCreditAmount: number;
-  avgDebitAmount: number;
-  avgDebitCount: number;
-  maxDebitAmount: number;
+  totalTransactionAmount: number;
+  totalTransactionCount: number;
+  avgTransactionAmount: number;
+  avgTransactionCount: number;
+  maxTransactionAmount: number;
+  maxTransactionCount: number;
 }
 
 export abstract class CustomerBehaviorData {
