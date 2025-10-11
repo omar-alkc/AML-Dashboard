@@ -1,0 +1,247 @@
+<div class="google-sheets-config-container">
+  <nb-card>
+    <nb-card-header>
+      <h4>Google Sheets Configuration</h4>
+      <p>Configure Google Sheets integration for data import and export</p>
+    </nb-card-header>
+
+    <nb-card-body>
+      <div *ngIf="loading" class="loading-container">
+        <nb-spinner size="medium"></nb-spinner>
+        <p>Loading configuration...</p>
+      </div>
+
+      <div *ngIf="!loading">
+        <nb-accordion>
+          <!-- Screening Configuration -->
+          <nb-accordion-item>
+            <nb-accordion-item-header>
+              <nb-icon icon="search-outline"></nb-icon>
+              Screening Configuration
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <form [formGroup]="screeningConfig" (ngSubmit)="saveConfiguration('screening')">
+                <div class="config-section">
+                  <h5>Google Sheets Details</h5>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="screening-sheet-id">Sheet ID</label>
+                      <input
+                        nbInput
+                        id="screening-sheet-id"
+                        formControlName="sheetId"
+                        placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
+                        fullWidth>
+                    </div>
+                    <div class="form-group">
+                      <button
+                        nbButton
+                        type="button"
+                        status="info"
+                        (click)="testConnection('screening')"
+                        [disabled]="screeningConfig.invalid">
+                        Test Connection
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="screening-credentials">Service Account Credentials (JSON)</label>
+                    <textarea
+                      nbInput
+                      id="screening-credentials"
+                      formControlName="serviceAccountCredentials"
+                      placeholder='{"type": "service_account", "project_id": "..."}'
+                      rows="4"
+                      fullWidth></textarea>
+                  </div>
+
+                  <!-- Test Result -->
+                  <div *ngIf="getTestResult('screening')" class="test-result">
+                    <nb-alert [status]="getTestResult('screening').success ? 'success' : 'danger'">
+                      {{ getTestResult('screening').message }}
+                    </nb-alert>
+                  </div>
+
+                  <h5>Column Mapping</h5>
+                  <div class="column-mappings">
+                    <div class="mapping-header">
+                      <div class="col-index">Column Index</div>
+                      <div class="col-field">Dashboard Field</div>
+                      <div class="col-actions">Actions</div>
+                    </div>
+                    
+                    <div formArrayName="columnMappings">
+                      <div
+                        *ngFor="let mapping of getColumnMappings('screening').controls; let i = index"
+                        [formGroupName]="i"
+                        class="mapping-row">
+                        <div class="col-index">
+                          <input
+                            nbInput
+                            formControlName="columnIndex"
+                            placeholder="A, B, C..."
+                            size="small">
+                        </div>
+                        <div class="col-field">
+                          <nb-select formControlName="dashboardField" placeholder="Select field" size="small">
+                            <nb-option *ngFor="let field of screeningFields" [value]="field">
+                              {{ field }}
+                            </nb-option>
+                          </nb-select>
+                        </div>
+                        <div class="col-actions">
+                          <button
+                            nbButton
+                            type="button"
+                            size="small"
+                            status="danger"
+                            (click)="removeColumnMapping('screening', i)">
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button
+                      nbButton
+                      type="button"
+                      size="small"
+                      status="primary"
+                      (click)="addColumnMapping('screening')">
+                      Add Mapping
+                    </button>
+                  </div>
+
+                  <div class="save-section">
+                    <button
+                      nbButton
+                      type="submit"
+                      status="success"
+                      [disabled]="screeningConfig.invalid">
+                      Save Screening Configuration
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+
+          <!-- GoAML Configuration -->
+          <nb-accordion-item>
+            <nb-accordion-item-header>
+              <nb-icon icon="file-text-outline"></nb-icon>
+              GoAML Configuration
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <form [formGroup]="goamlConfig" (ngSubmit)="saveConfiguration('goaml')">
+                <div class="config-section">
+                  <h5>Google Sheets Details</h5>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="goaml-sheet-id">Sheet ID</label>
+                      <input
+                        nbInput
+                        id="goaml-sheet-id"
+                        formControlName="sheetId"
+                        placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
+                        fullWidth>
+                    </div>
+                    <div class="form-group">
+                      <button
+                        nbButton
+                        type="button"
+                        status="info"
+                        (click)="testConnection('goaml')"
+                        [disabled]="goamlConfig.invalid">
+                        Test Connection
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="goaml-credentials">Service Account Credentials (JSON)</label>
+                    <textarea
+                      nbInput
+                      id="goaml-credentials"
+                      formControlName="serviceAccountCredentials"
+                      placeholder='{"type": "service_account", "project_id": "..."}'
+                      rows="4"
+                      fullWidth></textarea>
+                  </div>
+
+                  <!-- Test Result -->
+                  <div *ngIf="getTestResult('goaml')" class="test-result">
+                    <nb-alert [status]="getTestResult('goaml').success ? 'success' : 'danger'">
+                      {{ getTestResult('goaml').message }}
+                    </nb-alert>
+                  </div>
+
+                  <h5>Column Mapping</h5>
+                  <div class="column-mappings">
+                    <div class="mapping-header">
+                      <div class="col-index">Column Index</div>
+                      <div class="col-field">Dashboard Field</div>
+                      <div class="col-actions">Actions</div>
+                    </div>
+                    
+                    <div formArrayName="columnMappings">
+                      <div
+                        *ngFor="let mapping of getColumnMappings('goaml').controls; let i = index"
+                        [formGroupName]="i"
+                        class="mapping-row">
+                        <div class="col-index">
+                          <input
+                            nbInput
+                            formControlName="columnIndex"
+                            placeholder="A, B, C..."
+                            size="small">
+                        </div>
+                        <div class="col-field">
+                          <nb-select formControlName="dashboardField" placeholder="Select field" size="small">
+                            <nb-option *ngFor="let field of goamlFields" [value]="field">
+                              {{ field }}
+                            </nb-option>
+                          </nb-select>
+                        </div>
+                        <div class="col-actions">
+                          <button
+                            nbButton
+                            type="button"
+                            size="small"
+                            status="danger"
+                            (click)="removeColumnMapping('goaml', i)">
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button
+                      nbButton
+                      type="button"
+                      size="small"
+                      status="primary"
+                      (click)="addColumnMapping('goaml')">
+                      Add Mapping
+                    </button>
+                  </div>
+
+                  <div class="save-section">
+                    <button
+                      nbButton
+                      type="submit"
+                      status="success"
+                      [disabled]="goamlConfig.invalid">
+                      Save GoAML Configuration
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+        </nb-accordion>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>
