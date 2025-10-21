@@ -3,15 +3,21 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3>Customer Behavior Analytics</h3>
-          <div class="header-actions">
-            <span *ngIf="lastRefresh" class="last-updated">
-              Last updated: {{ lastRefresh | date:'medium' }}
-            </span>
-            <button nbButton status="primary" size="small" (click)="onRefreshClicked()">
-              <nb-icon icon="refresh-outline"></nb-icon>
-              Refresh Data
-            </button>
+          <div class="d-flex justify-content-between align-items-center">
+            <h3 class="mb-0">Customer Behavior Analytics</h3>
+            <div class="header-actions d-flex align-items-center">
+              <button nbButton ghost status="basic" size="small" class="me-2" (click)="openPageInfo()" 
+                      title="View dashboard information">
+                <nb-icon icon="info-outline"></nb-icon>
+              </button>
+              <span *ngIf="lastRefresh" class="me-2 last-updated">
+                Last updated: {{ lastRefresh | date:'medium' }}
+              </span>
+              <button nbButton status="primary" size="small" (click)="onRefreshClicked()">
+                <nb-icon icon="refresh-outline"></nb-icon>
+                Refresh Data
+              </button>
+            </div>
           </div>
         </div>
         <div class="card-body">

@@ -3,15 +3,21 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3>Transaction Monitoring Dashboard</h3>
-          <div class="header-actions">
-            <span *ngIf="lastRefresh" class="last-updated">
-              Last updated: {{ lastRefresh | date:'medium' }}
-            </span>
-            <button class="btn btn-primary btn-sm" (click)="onRefreshClicked()">
-              <i class="icon-refresh"></i>
-              Refresh Data
-            </button>
+          <div class="d-flex justify-content-between align-items-center">
+            <h3 class="mb-0">AML Transaction Monitoring Dashboard</h3>
+            <div class="header-actions d-flex align-items-center">
+              <button nbButton ghost status="basic" size="small" class="me-2" (click)="openPageInfo()" 
+                      title="View dashboard information">
+                <nb-icon icon="info-outline"></nb-icon>
+              </button>
+              <span *ngIf="lastRefresh" class="me-2 last-updated">
+                Last updated: {{ lastRefresh | date:'medium' }}
+              </span>
+              <button class="btn btn-primary btn-sm" (click)="onRefreshClicked()">
+                <i class="icon-refresh"></i>
+                Refresh Data
+              </button>
+            </div>
           </div>
         </div>
         <div class="card-body">
@@ -107,6 +113,64 @@
       <nb-card-header>Delayed Alerts by Investigator</nb-card-header>
       <nb-card-body>
         <ngx-delayed-alerts [dateRange]="dateRange"></ngx-delayed-alerts>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<!-- Charts Row 5 - Detection Classification -->
+<div class="row">
+  <div class="col-md-8">
+    <nb-card>
+      <nb-card-header>
+        <div class="chart-header-with-tabs">
+          <h5>Detection Classification per Time</h5>
+          <div class="chart-tabs">
+            <button class="btn btn-sm btn-primary" [class.active]="detectionTimePeriod === 'day'" (click)="setDetectionTimePeriod('day')">Day</button>
+            <button class="btn btn-sm btn-primary" [class.active]="detectionTimePeriod === 'week'" (click)="setDetectionTimePeriod('week')">Week</button>
+            <button class="btn btn-sm btn-primary" [class.active]="detectionTimePeriod === 'month'" (click)="setDetectionTimePeriod('month')">Month</button>
+          </div>
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        <ngx-detection-classification-timeline [dateRange]="dateRange" [timePeriod]="detectionTimePeriod"></ngx-detection-classification-timeline>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-md-4">
+    <nb-card>
+      <nb-card-header>Detection Classification</nb-card-header>
+      <nb-card-body>
+        <ngx-detection-classification [dateRange]="dateRange"></ngx-detection-classification>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<!-- Charts Row 6 - Cash Out Changed Profiles -->
+<div class="row">
+  <div class="col-md-8">
+    <nb-card>
+      <nb-card-header>
+        <div class="chart-header-with-tabs">
+          <h5>Cash Out Changed Profiles per Time</h5>
+          <div class="chart-tabs">
+            <button class="btn btn-sm btn-primary" [class.active]="cashoutTimePeriod === 'day'" (click)="setCashoutTimePeriod('day')">Day</button>
+            <button class="btn btn-sm btn-primary" [class.active]="cashoutTimePeriod === 'week'" (click)="setCashoutTimePeriod('week')">Week</button>
+            <button class="btn btn-sm btn-primary" [class.active]="cashoutTimePeriod === 'month'" (click)="setCashoutTimePeriod('month')">Month</button>
+          </div>
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        <ngx-cashout-profiles-timeline [dateRange]="dateRange" [timePeriod]="cashoutTimePeriod"></ngx-cashout-profiles-timeline>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-md-4">
+    <nb-card>
+      <nb-card-header>Cash Out Profiles Distribution</nb-card-header>
+      <nb-card-body>
+        <ngx-cashout-profiles-pie [dateRange]="dateRange"></ngx-cashout-profiles-pie>
       </nb-card-body>
     </nb-card>
   </div>

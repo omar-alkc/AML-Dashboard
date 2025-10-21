@@ -7,14 +7,25 @@ import { PageInfoModalComponent } from '../../@core/components/page-info-modal/p
 import { PageInfoService } from '../../@core/data/page-info.service';
 
 @Component({
-  selector: 'ngx-customer-behavior',
-  templateUrl: './customer-behavior.component.html',
-  styleUrls: ['./customer-behavior.component.scss'],
+  selector: 'ngx-sc-portal',
+  templateUrl: './sc-portal.component.html',
+  styleUrls: ['./sc-portal.component.scss'],
 })
-export class CustomerBehaviorComponent implements OnInit, OnDestroy {
+export class ScPortalComponent implements OnInit, OnDestroy {
   loading = false;
   dateRange: DateRange;
   lastRefresh: string;
+  
+  // Time period toggles
+  formsTrendPeriod: 'day' | 'week' | 'month' = 'week';
+  responseTimePeriod: 'day' | 'week' | 'month' = 'week';
+  statusChangePeriod: 'day' | 'week' | 'month' = 'week';
+  investigatorResponseTimePeriod: 'day' | 'week' | 'month' = 'week';
+  
+  // Form type toggles for charts
+  statusDistributionFormType: 'PEPs' | 'WU_Beneficiary' | 'Suspicious_Activity' = 'PEPs';
+  statusTimelineFormType: 'PEPs' | 'WU_Beneficiary' | 'Suspicious_Activity' = 'PEPs';
+  
   private subscriptions: Subscription[] = [];
 
   constructor(
@@ -58,8 +69,33 @@ export class CustomerBehaviorComponent implements OnInit, OnDestroy {
     });
   }
 
+  // Toggle methods
+  setFormsTrendPeriod(period: 'day' | 'week' | 'month') {
+    this.formsTrendPeriod = period;
+  }
+
+  setResponseTimePeriod(period: 'day' | 'week' | 'month') {
+    this.responseTimePeriod = period;
+  }
+
+  setStatusChangePeriod(period: 'day' | 'week' | 'month') {
+    this.statusChangePeriod = period;
+  }
+
+  setStatusDistributionFormType(type: 'PEPs' | 'WU_Beneficiary' | 'Suspicious_Activity') {
+    this.statusDistributionFormType = type;
+  }
+
+  setStatusTimelineFormType(type: 'PEPs' | 'WU_Beneficiary' | 'Suspicious_Activity') {
+    this.statusTimelineFormType = type;
+  }
+
+  setInvestigatorResponseTimePeriod(period: 'day' | 'week' | 'month') {
+    this.investigatorResponseTimePeriod = period;
+  }
+
   openPageInfo() {
-    const pageInfo = this.pageInfoService.getPageInfo('customer-behavior');
+    const pageInfo = this.pageInfoService.getPageInfo('sc-portal');
     const dialogRef = this.dialogService.open(PageInfoModalComponent, {
       hasBackdrop: true,
       closeOnBackdropClick: true,
@@ -69,4 +105,3 @@ export class CustomerBehaviorComponent implements OnInit, OnDestroy {
     dialogRef.componentRef?.instance.setData(pageInfo);
   }
 }
-

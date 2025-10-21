@@ -1,0 +1,178 @@
+<div class="page-content">
+  <!-- Header with filters -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex justify-content-between align-items-center">
+            <h3 class="mb-0">SC Portal Dashboard</h3>
+            <div class="header-actions d-flex align-items-center">
+              <button nbButton ghost status="basic" size="small" class="me-2" (click)="openPageInfo()" 
+                      title="View dashboard information">
+                <nb-icon icon="info-outline"></nb-icon>
+              </button>
+              <span *ngIf="lastRefresh" class="me-2">Last updated: {{ lastRefresh | date:'medium' }}</span>
+              <button class="btn btn-primary btn-sm" (click)="onRefreshClicked()">
+                <i class="icon-refresh"></i>
+                Refresh Data
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <ngx-sc-portal-filters></ngx-sc-portal-filters>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PEPs KPIs -->
+  <div class="row">
+    <div class="col-12">
+      <ngx-peps-kpis [dateRange]="dateRange"></ngx-peps-kpis>
+    </div>
+  </div>
+
+  <!-- WU Beneficiary KPIs -->
+  <div class="row">
+    <div class="col-12">
+      <ngx-wu-beneficiary-kpis [dateRange]="dateRange"></ngx-wu-beneficiary-kpis>
+    </div>
+  </div>
+
+  <!-- Suspicious Activity KPIs -->
+  <div class="row">
+    <div class="col-12">
+      <ngx-suspicious-activity-kpis [dateRange]="dateRange"></ngx-suspicious-activity-kpis>
+    </div>
+  </div>
+
+
+  <!-- Charts Row 1: Forms Sent Timeline + Status Distribution Pie -->
+  <div class="row">
+    <div class="col-md-8">
+      <nb-card>
+        <nb-card-header>
+          <div class="chart-header-with-tabs">
+            <h5>Forms Sent per Time</h5>
+            <div class="chart-tabs">
+              <button class="btn btn-sm btn-primary" [class.active]="formsTrendPeriod === 'day'" (click)="setFormsTrendPeriod('day')">Day</button>
+              <button class="btn btn-sm btn-primary" [class.active]="formsTrendPeriod === 'week'" (click)="setFormsTrendPeriod('week')">Week</button>
+              <button class="btn btn-sm btn-primary" [class.active]="formsTrendPeriod === 'month'" (click)="setFormsTrendPeriod('month')">Month</button>
+            </div>
+          </div>
+        </nb-card-header>
+        <nb-card-body>
+          <ngx-forms-sent-timeline [dateRange]="dateRange" [timePeriod]="formsTrendPeriod"></ngx-forms-sent-timeline>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-md-4">
+      <nb-card>
+        <nb-card-header>
+          <div class="chart-header-with-tabs">
+            <h5>Status Distribution</h5>
+            <div class="chart-tabs">
+              <button class="btn btn-sm btn-primary" [class.active]="statusDistributionFormType === 'PEPs'" (click)="setStatusDistributionFormType('PEPs')">PEPs</button>
+              <button class="btn btn-sm btn-primary" [class.active]="statusDistributionFormType === 'WU_Beneficiary'" (click)="setStatusDistributionFormType('WU_Beneficiary')">WU</button>
+              <button class="btn btn-sm btn-primary" [class.active]="statusDistributionFormType === 'Suspicious_Activity'" (click)="setStatusDistributionFormType('Suspicious_Activity')">SA</button>
+            </div>
+          </div>
+        </nb-card-header>
+        <nb-card-body>
+          <ngx-forms-status-pie [dateRange]="dateRange" [formType]="statusDistributionFormType"></ngx-forms-status-pie>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+
+  <!-- Charts Row 2: Customer Response Time + Forms Type Pie -->
+  <div class="row">
+    <div class="col-md-8">
+      <nb-card>
+        <nb-card-header>
+          <div class="chart-header-with-tabs">
+            <h5>Customer Response Time Trend</h5>
+            <div class="chart-tabs">
+              <button class="btn btn-sm btn-primary" [class.active]="responseTimePeriod === 'day'" (click)="setResponseTimePeriod('day')">Day</button>
+              <button class="btn btn-sm btn-primary" [class.active]="responseTimePeriod === 'week'" (click)="setResponseTimePeriod('week')">Week</button>
+              <button class="btn btn-sm btn-primary" [class.active]="responseTimePeriod === 'month'" (click)="setResponseTimePeriod('month')">Month</button>
+            </div>
+          </div>
+        </nb-card-header>
+        <nb-card-body>
+          <ngx-customer-response-time [dateRange]="dateRange" [timePeriod]="responseTimePeriod"></ngx-customer-response-time>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-md-4">
+      <nb-card>
+        <nb-card-header>Forms by Type</nb-card-header>
+        <nb-card-body>
+          <ngx-forms-type-pie [dateRange]="dateRange"></ngx-forms-type-pie>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+
+  <!-- Charts Row 3: Investigator Response Time (Full Width) -->
+  <div class="row">
+    <div class="col-12">
+      <nb-card>
+        <nb-card-header>
+          <div class="chart-header-with-tabs">
+            <h5>Investigator Response Time (7-day Rolling Average)</h5>
+            <div class="chart-tabs">
+              <button class="btn btn-sm btn-primary" [class.active]="investigatorResponseTimePeriod === 'day'" (click)="setInvestigatorResponseTimePeriod('day')">Day</button>
+              <button class="btn btn-sm btn-primary" [class.active]="investigatorResponseTimePeriod === 'week'" (click)="setInvestigatorResponseTimePeriod('week')">Week</button>
+              <button class="btn btn-sm btn-primary" [class.active]="investigatorResponseTimePeriod === 'month'" (click)="setInvestigatorResponseTimePeriod('month')">Month</button>
+            </div>
+          </div>
+        </nb-card-header>
+        <nb-card-body>
+          <ngx-investigator-response-time [dateRange]="dateRange" [timePeriod]="investigatorResponseTimePeriod"></ngx-investigator-response-time>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+
+  <!-- Charts Row 4: Investigator Performance Heatmap (Full Width) -->
+  <div class="row">
+    <div class="col-12">
+      <nb-card>
+        <nb-card-header>Investigator Performance Heatmap</nb-card-header>
+        <nb-card-body>
+          <ngx-investigator-performance [dateRange]="dateRange"></ngx-investigator-performance>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+
+  <!-- Charts Row 5: Form Status per Time -->
+  <div class="row">
+    <div class="col-md-12">
+      <nb-card>
+        <nb-card-header>
+          <div class="chart-header-with-tabs">
+            <h5>Form Status per Time</h5>
+            <div class="chart-tabs">
+              <div class="chart-tabs-group">
+                <button class="btn btn-sm btn-primary" [class.active]="statusTimelineFormType === 'PEPs'" (click)="setStatusTimelineFormType('PEPs')">PEPs</button>
+                <button class="btn btn-sm btn-primary" [class.active]="statusTimelineFormType === 'WU_Beneficiary'" (click)="setStatusTimelineFormType('WU_Beneficiary')">WU</button>
+                <button class="btn btn-sm btn-primary" [class.active]="statusTimelineFormType === 'Suspicious_Activity'" (click)="setStatusTimelineFormType('Suspicious_Activity')">SA</button>
+              </div>
+              <div class="chart-tabs-group">
+                <button class="btn btn-sm btn-primary" [class.active]="statusChangePeriod === 'day'" (click)="setStatusChangePeriod('day')">Day</button>
+                <button class="btn btn-sm btn-primary" [class.active]="statusChangePeriod === 'week'" (click)="setStatusChangePeriod('week')">Week</button>
+                <button class="btn btn-sm btn-primary" [class.active]="statusChangePeriod === 'month'" (click)="setStatusChangePeriod('month')">Month</button>
+              </div>
+            </div>
+          </div>
+        </nb-card-header>
+        <nb-card-body>
+          <ngx-form-status-timeline [dateRange]="dateRange" [formType]="statusTimelineFormType" [timePeriod]="statusChangePeriod"></ngx-form-status-timeline>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>

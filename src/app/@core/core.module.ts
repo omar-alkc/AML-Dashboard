@@ -2,6 +2,7 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core
 import { CommonModule } from '@angular/common';
 import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
+import { NbThemeModule, NbCardModule, NbIconModule, NbButtonModule, NbDialogModule } from '@nebular/theme';
 import { of as observableOf } from 'rxjs';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
@@ -56,6 +57,30 @@ import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
 
+// Page Info Modal Component
+import { PageInfoModalComponent } from './components/page-info-modal/page-info-modal.component';
+import { PageInfoService } from './data/page-info.service';
+
+// AML Data Abstracts
+import { DetectionsData } from './data/detection';
+import { ScreeningData } from './data/screening';
+import { GoAmlReportData } from './data/goaml-report';
+
+// AML Mock Services
+import { DetectionService } from './mock/detection.service';
+import { ScreeningService } from './mock/screening.service';
+import { GoAmlReportService } from './mock/goaml-report.service';
+import { ScPortalService } from './mock/sc-portal.service';
+
+// AML HTTP Services
+import { HttpDetectionService } from './services/http/http-detection.service';
+import { HttpScreeningService } from './services/http/http-screening.service';
+import { HttpGoAmlReportService } from './services/http/http-goaml-report.service';
+
+// Data Source Provider
+import { DataSourceProvider } from './services/data-source-provider.service';
+import { environment } from '../../environments/environment';
+
 const socialLinks = [
   {
     url: 'https://github.com/akveo/nebular',
@@ -96,6 +121,46 @@ const DATA_SERVICES = [
   { provide: SecurityCamerasData, useClass: SecurityCamerasService },
 ];
 
+// AML Data Services with Factory Providers (switch between mock and HTTP)
+const AML_DATA_SERVICES = [
+  // Detection Service Factory
+  {
+    provide: DetectionsData,
+    useFactory: (provider: DataSourceProvider, httpService: HttpDetectionService, mockService: DetectionService) => {
+      provider.logConfiguration();
+      return provider.useBackend ? httpService : mockService;
+    },
+    deps: [DataSourceProvider, HttpDetectionService, DetectionService],
+  },
+  // Screening Service Factory
+  {
+    provide: ScreeningData,
+    useFactory: (provider: DataSourceProvider, httpService: HttpScreeningService, mockService: ScreeningService) => {
+      return provider.useBackend ? httpService : mockService;
+    },
+    deps: [DataSourceProvider, HttpScreeningService, ScreeningService],
+  },
+  // GoAML Report Service Factory
+  {
+    provide: GoAmlReportData,
+    useFactory: (provider: DataSourceProvider, httpService: HttpGoAmlReportService, mockService: GoAmlReportService) => {
+      return provider.useBackend ? httpService : mockService;
+    },
+    deps: [DataSourceProvider, HttpGoAmlReportService, GoAmlReportService],
+  },
+  // HTTP Services (needed as dependencies)
+  HttpDetectionService,
+  HttpScreeningService,
+  HttpGoAmlReportService,
+  // Mock Services (needed as dependencies)
+  DetectionService,
+  ScreeningService,
+  GoAmlReportService,
+  ScPortalService,
+  // Data Source Provider
+  DataSourceProvider,
+];
+
 export class NbSimpleRoleProvider extends NbRoleProvider {
   getRole() {
     // here you could provide any role based on any auth flow
@@ -106,6 +171,7 @@ export class NbSimpleRoleProvider extends NbRoleProvider {
 export const NB_CORE_PROVIDERS = [
   ...MockDataModule.forRoot().providers,
   ...DATA_SERVICES,
+  ...AML_DATA_SERVICES,
   ...NbAuthModule.forRoot({
 
     strategies: [
@@ -149,16 +215,28 @@ export const NB_CORE_PROVIDERS = [
   CacheService,
   DateRangeService,
   DataProcessingService,
+  PageInfoService,
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+    NbThemeModule,
+    NbCardModule,
+    NbIconModule,
+    NbButtonModule,
+    NbDialogModule,
   ],
   exports: [
     NbAuthModule,
+    PageInfoModalComponent,
   ],
-  declarations: [],
+  declarations: [
+    PageInfoModalComponent,
+  ],
+  entryComponents: [
+    PageInfoModalComponent,
+  ],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

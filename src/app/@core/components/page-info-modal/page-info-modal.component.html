@@ -1,0 +1,30 @@
+<nb-card>
+  <nb-card-header>
+    <div class="d-flex justify-content-between align-items-center">
+      <h4 class="mb-0">
+        <nb-icon icon="info-outline" class="me-2"></nb-icon>
+        {{ data.pageTitle }} - Information
+      </h4>
+      <button nbButton ghost status="basic" size="small" (click)="close()">
+        <nb-icon icon="close-outline"></nb-icon>
+      </button>
+    </div>
+  </nb-card-header>
+  
+  <nb-card-body class="page-info-content">
+    <div *ngFor="let section of data.sections" class="info-section mb-4">
+      <h5 class="section-title">{{ section.sectionTitle }}</h5>
+      <div class="charts-list">
+        <div *ngFor="let chart of section.charts" class="chart-info mb-3">
+          <div class="chart-title">
+            <nb-icon icon="bar-chart-outline" class="me-2"></nb-icon>
+            <strong>{{ chart.title }}</strong>
+          </div>
+          <div class="chart-description">
+            {{ chart.description }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
