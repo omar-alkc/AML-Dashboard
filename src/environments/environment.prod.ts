@@ -8,4 +8,5 @@ export const environment = {
   apiUrl: '/api', // served by nginx proxy
   cacheMonths: 3,
   useBackendData: true, // always use backend in production
+  googleClientId: '153360153143-8e995ujhfu3uhq6iftjr27lvb3483tao.apps.googleusercontent.com', // TODO: Add your Google OAuth Client ID here
 };
